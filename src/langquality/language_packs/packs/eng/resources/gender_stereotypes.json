@@ -1,0 +1,236 @@
+{
+  "stereotypes": [
+    {
+      "category": "domestic",
+      "gender": "feminine",
+      "terms": [
+        "housework",
+        "cooking",
+        "cleaning",
+        "laundry",
+        "ironing",
+        "dishes",
+        "shopping",
+        "childcare",
+        "family",
+        "home",
+        "homemaker",
+        "housewife"
+      ]
+    },
+    {
+      "category": "professional",
+      "gender": "masculine",
+      "terms": [
+        "career",
+        "ambition",
+        "leadership",
+        "authority",
+        "power",
+        "decision",
+        "strategy",
+        "competition",
+        "success",
+        "business",
+        "executive",
+        "breadwinner"
+      ]
+    },
+    {
+      "category": "emotional",
+      "gender": "feminine",
+      "terms": [
+        "sensitive",
+        "emotional",
+        "gentle",
+        "caring",
+        "compassionate",
+        "empathetic",
+        "tender",
+        "delicate",
+        "fragile",
+        "vulnerable",
+        "nurturing",
+        "supportive"
+      ]
+    },
+    {
+      "category": "physical",
+      "gender": "masculine",
+      "terms": [
+        "strong",
+        "muscular",
+        "robust",
+        "powerful",
+        "vigorous",
+        "athletic",
+        "tough",
+        "solid",
+        "resilient",
+        "enduring",
+        "aggressive",
+        "dominant"
+      ]
+    },
+    {
+      "category": "appearance",
+      "gender": "feminine",
+      "terms": [
+        "beautiful",
+        "pretty",
+        "elegant",
+        "graceful",
+        "attractive",
+        "charming",
+        "cute",
+        "lovely",
+        "gorgeous",
+        "stunning",
+        "fashionable",
+        "stylish"
+      ]
+    },
+    {
+      "category": "technical",
+      "gender": "masculine",
+      "terms": [
+        "technical",
+        "mechanical",
+        "technology",
+        "computing",
+        "engineering",
+        "mathematics",
+        "science",
+        "logical",
+        "analytical",
+        "rational",
+        "systematic",
+        "quantitative"
+      ]
+    },
+    {
+      "category": "care",
+      "gender": "feminine",
+      "terms": [
+        "caring",
+        "helping",
+        "assistance",
+        "support",
+        "listening",
+        "comfort",
+        "kindness",
+        "devotion",
+        "sacrifice",
+        "selfless",
+        "maternal",
+        "nurturing"
+      ]
+    },
+    {
+      "category": "leadership",
+      "gender": "masculine",
+      "terms": [
+        "boss",
+        "chief",
+        "leader",
+        "manager",
+        "supervisor",
+        "commander",
+        "captain",
+        "director",
+        "president",
+        "chairman",
+        "head",
+        "executive"
+      ]
+    },
+    {
+      "category": "communication",
+      "gender": "feminine",
+      "terms": [
+        "talkative",
+        "chatty",
+        "gossipy",
+        "expressive",
+        "verbal",
+        "communicative",
+        "social",
+        "friendly",
+        "warm",
+        "welcoming"
+      ]
+    },
+    {
+      "category": "risk",
+      "gender": "masculine",
+      "terms": [
+        "brave",
+        "courageous",
+        "bold",
+        "daring",
+        "adventurous",
+        "fearless",
+        "risk-taking",
+        "competitive",
+        "aggressive",
+        "assertive"
+      ]
+    }
+  ],
+  "context_patterns": [
+    {
+      "pattern": "stay-at-home mom",
+      "category": "domestic",
+      "gender": "feminine"
+    },
+    {
+      "pattern": "working dad",
+      "category": "professional",
+      "gender": "masculine"
+    },
+    {
+      "pattern": "career woman",
+      "category": "professional",
+      "gender": "feminine",
+      "note": "Often implies unusual or noteworthy"
+    },
+    {
+      "pattern": "family man",
+      "category": "domestic",
+      "gender": "masculine"
+    },
+    {
+      "pattern": "strong man",
+      "category": "physical",
+      "gender": "masculine"
+    },
+    {
+      "pattern": "emotional woman",
+      "category": "emotional",
+      "gender": "feminine"
+    },
+    {
+      "pattern": "tech guy",
+      "category": "technical",
+      "gender": "masculine"
+    },
+    {
+      "pattern": "male nurse",
+      "category": "care",
+      "gender": "masculine",
+      "note": "Implies nursing is typically feminine"
+    },
+    {
+      "pattern": "female engineer",
+      "category": "technical",
+      "gender": "feminine",
+      "note": "Implies engineering is typically masculine"
+    },
+    {
+      "pattern": "working mother",
+      "category": "professional",
+      "gender": "feminine",
+      "note": "Often implies conflict with domestic role"
+    }
+  ]
+}

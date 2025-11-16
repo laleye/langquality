@@ -1,0 +1,23 @@
+# Example Stopwords File
+# One word per line
+# Remove this header and rename to stopwords.txt when ready
+#
+# Include common function words that don't carry much semantic meaning:
+# - Articles (the, a, an)
+# - Pronouns (I, you, he, she, it)
+# - Prepositions (in, on, at, to, from)
+# - Conjunctions (and, or, but)
+# - Auxiliary verbs (is, are, was, were, have, has)
+# Recommended size: 100-200 words
+
+the
+a
+an
+is
+are
+and
+or
+but
+in
+on
+at

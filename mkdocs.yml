@@ -1,0 +1,169 @@
+# MkDocs configuration for LangQuality documentation
+# https://www.mkdocs.org/user-guide/configuration/
+
+site_name: LangQuality Documentation
+site_description: Language Quality Toolkit for Low-Resource Languages
+site_author: LangQuality Contributors
+site_url: https://langquality.readthedocs.io
+
+# Repository
+repo_name: langquality/langquality
+repo_url: https://github.com/langquality/langquality
+edit_uri: edit/main/docs/
+
+# Copyright
+copyright: Copyright &copy; 2024 LangQuality Contributors
+
+# Theme
+theme:
+  name: material
+  language: en
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.annotate
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-\.]+'
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Extra
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/langquality/langquality
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/langquality/
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX  # Replace with actual GA ID
+
+# Navigation
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Quick Start: quickstart.md
+    - Installation: user_guide/installation.md
+    - First Analysis: user_guide/analyzing_data.md
+  - User Guide:
+    - Installation: user_guide/installation.md
+    - Analyzing Data: user_guide/analyzing_data.md
+    - Configuration: configuration_guide.md
+    - Data Loading: data_loading_guide.md
+    - Best Practices: best_practices.md
+  - Language Packs:
+    - Overview: language_packs/README.md
+    - Creating Packs: language_pack_guide.md
+    - Available Packs:
+      - Fongbe: language_packs/packs/fon/README.md
+      - French: language_packs/packs/fra/README.md
+      - English: language_packs/packs/eng/README.md
+  - Developer Guide:
+    - Architecture: developer_guide/architecture.md
+    - Creating Analyzers: developer_guide/creating_analyzers.md
+    - Plugin System: developer_guide/plugin_system.md
+    - API Reference: api_reference/README.md
+  - Examples:
+    - Notebooks: examples/notebooks/
+    - Custom Analyzers: examples/custom_analyzers/
+    - Use Cases: examples/use_cases/
+  - Community:
+    - Contributing: CONTRIBUTING.md
+    - Code of Conduct: CODE_OF_CONDUCT.md
+    - Governance: GOVERNANCE.md
+    - FAQ: faq.md
+  - Project:
+    - Changelog: CHANGELOG.md
+    - Migration Guide: migration_guide.md
+    - Development: development.md
+    - License: LICENSE
+
+# Extra CSS
+extra_css:
+  - stylesheets/extra.css
+
+# Extra JavaScript
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

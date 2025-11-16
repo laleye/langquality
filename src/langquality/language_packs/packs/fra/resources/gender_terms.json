@@ -1,0 +1,118 @@
+{
+  "masculine": {
+    "pronouns": [
+      "il",
+      "lui",
+      "le",
+      "son",
+      "ses",
+      "celui",
+      "ceux",
+      "sien",
+      "siens"
+    ],
+    "articles": [
+      "un",
+      "du",
+      "au",
+      "des"
+    ],
+    "titles": [
+      "monsieur",
+      "m.",
+      "mr",
+      "messieurs",
+      "mm."
+    ],
+    "terms": [
+      "homme",
+      "garçon",
+      "père",
+      "fils",
+      "frère",
+      "oncle",
+      "neveu",
+      "grand-père",
+      "mari",
+      "époux",
+      "fiancé",
+      "petit-ami",
+      "roi",
+      "prince",
+      "duc",
+      "comte",
+      "baron"
+    ]
+  },
+  "feminine": {
+    "pronouns": [
+      "elle",
+      "la",
+      "sa",
+      "ses",
+      "celle",
+      "celles",
+      "sienne",
+      "siennes"
+    ],
+    "articles": [
+      "une",
+      "de la",
+      "à la",
+      "des"
+    ],
+    "titles": [
+      "madame",
+      "mme",
+      "mademoiselle",
+      "mlle",
+      "mesdames",
+      "mmes"
+    ],
+    "terms": [
+      "femme",
+      "fille",
+      "mère",
+      "sœur",
+      "tante",
+      "nièce",
+      "grand-mère",
+      "épouse",
+      "fiancée",
+      "petite-amie",
+      "reine",
+      "princesse",
+      "duchesse",
+      "comtesse",
+      "baronne"
+    ]
+  },
+  "neutral": {
+    "pronouns": [
+      "on",
+      "nous",
+      "vous",
+      "ils",
+      "elles",
+      "eux",
+      "leur",
+      "leurs"
+    ],
+    "terms": [
+      "personne",
+      "gens",
+      "individu",
+      "enfant",
+      "adulte",
+      "parent",
+      "collègue",
+      "ami",
+      "voisin",
+      "citoyen",
+      "membre",
+      "participant",
+      "étudiant",
+      "élève"
+    ]
+  }
+}

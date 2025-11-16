@@ -1,0 +1,164 @@
+{
+  "stereotypes": [
+    {
+      "category": "domestic",
+      "gender": "feminine",
+      "terms": [
+        "ménage",
+        "cuisine",
+        "lessive",
+        "repassage",
+        "nettoyage",
+        "vaisselle",
+        "courses",
+        "enfants",
+        "famille",
+        "maison"
+      ]
+    },
+    {
+      "category": "professional",
+      "gender": "masculine",
+      "terms": [
+        "carrière",
+        "ambition",
+        "leadership",
+        "autorité",
+        "pouvoir",
+        "décision",
+        "stratégie",
+        "compétition",
+        "réussite",
+        "business"
+      ]
+    },
+    {
+      "category": "emotional",
+      "gender": "feminine",
+      "terms": [
+        "sensible",
+        "émotionnelle",
+        "douce",
+        "attentionnée",
+        "compatissante",
+        "empathique",
+        "tendre",
+        "délicate",
+        "fragile",
+        "vulnérable"
+      ]
+    },
+    {
+      "category": "physical",
+      "gender": "masculine",
+      "terms": [
+        "fort",
+        "musclé",
+        "robuste",
+        "puissant",
+        "vigoureux",
+        "athlétique",
+        "costaud",
+        "solide",
+        "résistant",
+        "endurant"
+      ]
+    },
+    {
+      "category": "appearance",
+      "gender": "feminine",
+      "terms": [
+        "belle",
+        "jolie",
+        "élégante",
+        "gracieuse",
+        "séduisante",
+        "charmante",
+        "mignonne",
+        "attirante",
+        "ravissante",
+        "esthétique"
+      ]
+    },
+    {
+      "category": "technical",
+      "gender": "masculine",
+      "terms": [
+        "technique",
+        "mécanique",
+        "technologie",
+        "informatique",
+        "ingénierie",
+        "mathématiques",
+        "sciences",
+        "logique",
+        "analytique",
+        "rationnel"
+      ]
+    },
+    {
+      "category": "care",
+      "gender": "feminine",
+      "terms": [
+        "soins",
+        "aide",
+        "assistance",
+        "soutien",
+        "écoute",
+        "réconfort",
+        "bienveillance",
+        "dévouement",
+        "sacrifice",
+        "abnégation"
+      ]
+    },
+    {
+      "category": "leadership",
+      "gender": "masculine",
+      "terms": [
+        "chef",
+        "patron",
+        "dirigeant",
+        "manager",
+        "responsable",
+        "commandant",
+        "capitaine",
+        "directeur",
+        "président",
+        "leader"
+      ]
+    }
+  ],
+  "context_patterns": [
+    {
+      "pattern": "femme au foyer",
+      "category": "domestic",
+      "gender": "feminine"
+    },
+    {
+      "pattern": "homme d'affaires",
+      "category": "professional",
+      "gender": "masculine"
+    },
+    {
+      "pattern": "mère de famille",
+      "category": "domestic",
+      "gender": "feminine"
+    },
+    {
+      "pattern": "chef de famille",
+      "category": "leadership",
+      "gender": "masculine"
+    },
+    {
+      "pattern": "femme fatale",
+      "category": "appearance",
+      "gender": "feminine"
+    },
+    {
+      "pattern": "homme fort",
+      "category": "physical",
+      "gender": "masculine"
+    }
+  ]
+}

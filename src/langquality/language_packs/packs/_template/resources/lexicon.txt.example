@@ -1,0 +1,14 @@
+# Example Lexicon File
+# One word per line, ideally sorted by frequency (most common first)
+# Remove this header and rename to lexicon.txt when ready
+#
+# This file should contain the most common words in your language
+# Recommended size: 5,000-15,000 words
+# Source: frequency dictionaries, corpus analysis, linguistic databases
+
+word1
+word2
+word3
+common_word
+another_word
+frequent_term

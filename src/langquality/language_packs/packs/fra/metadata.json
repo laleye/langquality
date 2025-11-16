@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "author": "LangQuality Community",
+  "email": "community@langquality.org",
+  "license": "MIT",
+  "description": "Language pack for French - A Romance language spoken worldwide. This pack includes comprehensive resources for analyzing French text datasets with full NLP support including POS tagging, dependency parsing, and gender bias detection.",
+  "created": "2024-11-15",
+  "updated": "2024-11-15",
+  "contributors": [
+    "LangQuality Core Team"
+  ],
+  "status": "stable",
+  "coverage": {
+    "lexicon_size": 10000,
+    "stopwords_size": 150,
+    "domains_covered": [
+      "health",
+      "education",
+      "technology",
+      "business",
+      "culture",
+      "science",
+      "politics",
+      "sports"
+    ],
+    "has_gender_resources": true,
+    "has_stereotype_detection": true
+  },
+  "dependencies": {
+    "spacy_model": "fr_core_news_md",
+    "min_langquality_version": "1.0.0",
+    "python_version": ">=3.8"
+  },
+  "references": [
+    "https://spacy.io/models/fr",
+    "https://github.com/langquality/langquality-toolkit"
+  ],
+  "notes": "This language pack provides full NLP support for French with spaCy. It includes comprehensive gender bias detection resources and supports advanced linguistic analysis."
+}

@@ -1,0 +1,19 @@
+{
+  "professions": [
+    {
+      "neutral": "teacher",
+      "masculine": "male teacher",
+      "feminine": "female teacher"
+    },
+    {
+      "neutral": "doctor",
+      "masculine": "male doctor",
+      "feminine": "female doctor"
+    },
+    {
+      "neutral": "engineer",
+      "masculine": "male engineer",
+      "feminine": "female engineer"
+    }
+  ]
+}

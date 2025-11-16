@@ -1,0 +1,78 @@
+{
+  "_comment": "Example Gender Terms File - Remove this comment and rename to gender_terms.json when ready",
+  "_instructions": "Include gender-related terms in your language. Only needed if your language has grammatical or social gender.",
+  
+  "masculine": {
+    "pronouns": [
+      "he",
+      "him",
+      "his",
+      "himself"
+    ],
+    "articles": [
+      "a_masculine_article"
+    ],
+    "titles": [
+      "mr",
+      "sir",
+      "lord"
+    ],
+    "terms": [
+      "man",
+      "boy",
+      "father",
+      "son",
+      "brother",
+      "uncle",
+      "grandfather",
+      "husband"
+    ]
+  },
+  
+  "feminine": {
+    "pronouns": [
+      "she",
+      "her",
+      "hers",
+      "herself"
+    ],
+    "articles": [
+      "a_feminine_article"
+    ],
+    "titles": [
+      "mrs",
+      "ms",
+      "miss",
+      "madam"
+    ],
+    "terms": [
+      "woman",
+      "girl",
+      "mother",
+      "daughter",
+      "sister",
+      "aunt",
+      "grandmother",
+      "wife"
+    ]
+  },
+  
+  "neutral": {
+    "_note": "Include neutral terms and non-binary pronouns if available in your language",
+    "pronouns": [
+      "they",
+      "them",
+      "their",
+      "theirs",
+      "themselves"
+    ],
+    "terms": [
+      "person",
+      "child",
+      "parent",
+      "sibling",
+      "spouse",
+      "partner"
+    ]
+  }
+}

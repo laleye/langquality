@@ -1,0 +1,101 @@
+# Language Pack Configuration Template
+# Copy this directory and customize for your language
+#
+# INSTRUCTIONS:
+# 1. Replace "xxx" with your language's ISO 639-3 code (find it at: https://iso639-3.sil.org/)
+# 2. Update all fields marked with "REQUIRED" or "RECOMMENDED"
+# 3. Remove or comment out optional fields you don't need
+# 4. Add resources to the resources/ directory
+# 5. Test your pack with: langquality pack validate /path/to/your/pack
+
+language:
+  code: "xxx"  # REQUIRED: ISO 639-3 code (3 letters, e.g., "eng", "fra", "fon")
+  name: "Language Name"  # REQUIRED: Full language name in English (e.g., "English", "French")
+  native_name: "Native Name"  # OPTIONAL: Language name in native script (e.g., "Français", "English")
+  family: "Language Family"  # RECOMMENDED: e.g., "Niger-Congo", "Indo-European", "Sino-Tibetan"
+  subfamily: "Subfamily"  # OPTIONAL: e.g., "Romance", "Germanic", "Gbe"
+  script: "Latin"  # REQUIRED: "Latin", "Arabic", "Cyrillic", "Devanagari", "Han", etc.
+  direction: "ltr"  # REQUIRED: "ltr" (left-to-right) or "rtl" (right-to-left)
+  region: "Geographic Region"  # OPTIONAL: Where the language is spoken (e.g., "West Africa", "Europe")
+
+# Tokenization configuration
+# Choose the best method for your language:
+# - "spacy": Best for languages with spaCy models (requires model installation)
+# - "nltk": Good for languages with NLTK support
+# - "whitespace": Simple space-based splitting (works for most languages)
+# - "custom": Implement your own tokenizer (advanced)
+tokenization:
+  method: "whitespace"  # REQUIRED: "spacy", "nltk", "whitespace", or "custom"
+  model: null  # OPTIONAL: For spacy: "en_core_web_md", "fr_core_news_md", etc.
+  custom_rules: []  # OPTIONAL: Custom tokenization rules (advanced)
+  fallback: "whitespace"  # OPTIONAL: Fallback method if primary method fails
+
+# Analysis thresholds (all optional, defaults will be used if not specified)
+# Adjust these based on your language's characteristics and use case
+thresholds:
+  structural:
+    min_words: 3  # Minimum words per sentence
+    max_words: 20  # Maximum words per sentence
+    min_chars: 10  # Minimum characters per sentence
+    max_chars: 200  # Maximum characters per sentence
+    check_punctuation: true  # Check for proper punctuation
+    check_capitalization: true  # Check for proper capitalization
+  
+  linguistic:
+    min_readability_score: 0.0  # Minimum readability score
+    max_readability_score: 60.0  # Maximum readability score (lower = easier to read)
+    enable_pos_tagging: true  # Enable part-of-speech tagging (requires NLP model)
+    enable_dependency_parsing: false  # Enable dependency parsing (requires NLP model)
+    check_jargon: false  # Check for technical jargon
+  
+  diversity:
+    target_ttr: 0.6  # Target type-token ratio (vocabulary richness)
+    min_unique_words: 100  # Minimum unique words in dataset
+    check_duplicates: true  # Check for duplicate sentences
+    duplicate_threshold: 0.95  # Similarity threshold for duplicates (0-1)
+  
+  domain:
+    min_representation: 0.10  # Minimum % representation per domain (10%)
+    max_representation: 0.30  # Maximum % representation per domain (30%)
+    balance_threshold: 0.15  # Acceptable imbalance between domains (15%)
+    require_domain_labels: false  # Whether domain labels are required
+  
+  gender:
+    target_ratio: [0.4, 0.6]  # Target gender ratio range (40-60% for balance)
+    check_stereotypes: true  # Check for gender stereotypes
+    check_profession_bias: true  # Check for gendered profession terms
+
+# Analyzer configuration
+# Enable/disable analyzers based on available resources
+analyzers:
+  enabled:
+    - structural  # Always available (no resources needed)
+    - linguistic  # Requires tokenization
+    - diversity  # Requires tokenization
+    - domain  # Works with or without domain labels
+  disabled:
+    - gender_bias  # Disable if no gender resources available
+
+# Resource files (all optional, relative to resources/ directory)
+# Set to null or remove if resource is not available
+resources:
+  lexicon: null  # "lexicon.txt" - Frequency lexicon (one word per line)
+  stopwords: null  # "stopwords.txt" - Common stopwords (one word per line)
+  gender_terms: null  # "gender_terms.json" - Gender-related terms
+  professions: null  # "professions.json" - Gendered professions
+  stereotypes: null  # "gender_stereotypes.json" - Gender stereotypes
+  custom: []  # List of custom resource files
+
+# Domain-specific settings (optional)
+domains:
+  expected: []  # List of expected domain names (e.g., ["health", "education"])
+
+# Output preferences (optional)
+output:
+  language: "en"  # Language for output messages (ISO 639-1 code)
+  date_format: "%Y-%m-%d"  # Date format for reports
+  number_format: "en_US"  # Number format locale
+
+# Custom analyzer plugins (optional)
+# List paths to custom analyzer Python files
+plugins: []

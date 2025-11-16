@@ -1,0 +1,297 @@
+# ============================================================================
+# Fongbe Data Quality Pipeline - Example Configuration
+# ============================================================================
+# 
+# This file provides a comprehensive example configuration for the Fongbe
+# Data Quality Pipeline. Copy this file and customize it for your specific
+# use case.
+#
+# USAGE:
+#   python -m fongbe_quality analyze --config path/to/your_config.yaml
+#
+# ============================================================================
+
+# ============================================================================
+# ANALYSIS CONFIGURATION
+# ============================================================================
+# Configure thresholds and parameters for quality analysis
+
+analysis:
+  # --------------------------------------------------------------------------
+  # Sentence Length Constraints (in words)
+  # --------------------------------------------------------------------------
+  # These constraints are based on best practices for ASR and speech translation:
+  # - Too short sentences lack context for accurate translation
+  # - Too long sentences are difficult to pronounce and record clearly
+  # 
+  # RECOMMENDED VALUES:
+  #   - ASR training: min_words=3, max_words=20
+  #   - Speech translation: min_words=5, max_words=15
+  #   - Conversational data: min_words=2, max_words=25
+  #
+  min_words: 5
+  max_words: 15
+  
+  # --------------------------------------------------------------------------
+  # Readability Scores (Flesch-Kincaid)
+  # --------------------------------------------------------------------------
+  # Measures text complexity. Lower scores indicate easier-to-read text.
+  # 
+  # SCORE INTERPRETATION:
+  #   90-100: Very easy (5th grade level)
+  #   60-70:  Standard (8th-9th grade level)
+  #   30-50:  Difficult (college level)
+  #   0-30:   Very difficult (graduate level)
+  #
+  # RECOMMENDED VALUES:
+  #   - General audience: max_readability_score=60
+  #   - Educational content: max_readability_score=50
+  #   - Technical content: max_readability_score=70
+  #
+  min_readability_score: 0
+  max_readability_score: 50
+  
+  # --------------------------------------------------------------------------
+  # Diversity Metrics
+  # --------------------------------------------------------------------------
+  # Type-Token Ratio (TTR) measures vocabulary richness
+  # TTR = (unique words) / (total words)
+  #
+  # INTERPRETATION:
+  #   0.4-0.5: Low diversity (repetitive)
+  #   0.5-0.7: Good diversity (recommended)
+  #   0.7-0.9: High diversity (very varied)
+  #
+  # RECOMMENDED VALUES:
+  #   - Conversational data: target_ttr=0.55
+  #   - Educational content: target_ttr=0.65
+  #   - Literary text: target_ttr=0.75
+  #
+  target_ttr: 0.65
+  
+  # --------------------------------------------------------------------------
+  # Domain Balance Thresholds
+  # --------------------------------------------------------------------------
+  # Ensures balanced representation across thematic domains
+  # Values are expressed as proportions (0.0 to 1.0)
+  #
+  # EXAMPLE:
+  #   If you have 5 domains and want balanced distribution:
+  #   - Ideal per domain: 20% (0.20)
+  #   - min_domain_representation: 0.10 (10% minimum)
+  #   - max_domain_representation: 0.30 (30% maximum)
+  #
+  # RECOMMENDED VALUES:
+  #   - Balanced dataset: min=0.10, max=0.30
+  #   - Flexible dataset: min=0.05, max=0.40
+  #   - Focused dataset: min=0.02, max=0.50
+  #
+  min_domain_representation: 0.08  # 8% minimum per domain
+  max_domain_representation: 0.35  # 35% maximum per domain
+  
+  # --------------------------------------------------------------------------
+  # Gender Bias Thresholds
+  # --------------------------------------------------------------------------
+  # Defines acceptable range for gender representation ratio
+  # Ratio = feminine_mentions / (masculine_mentions + feminine_mentions)
+  #
+  # INTERPRETATION:
+  #   0.50: Perfect balance (50% feminine, 50% masculine)
+  #   0.40-0.60: Acceptable range (40-60% feminine)
+  #   <0.40 or >0.60: Potential bias
+  #
+  # RECOMMENDED VALUES:
+  #   - Strict balance: [0.45, 0.55]
+  #   - Moderate balance: [0.40, 0.60]
+  #   - Flexible: [0.35, 0.65]
+  #
+  target_gender_ratio:
+    - 0.45  # Minimum acceptable ratio (45% feminine)
+    - 0.55  # Maximum acceptable ratio (55% feminine)
+  
+  # --------------------------------------------------------------------------
+  # Custom Jargon Terms
+  # --------------------------------------------------------------------------
+  # List of technical or specialized terms to flag in the analysis
+  # These terms may be difficult to translate or pronounce
+  #
+  # Add domain-specific terms that should be avoided or simplified
+  # Examples provided are common French technical terms
+  #
+  jargon_terms:
+    - "algorithme"
+    - "infrastructure"
+    - "méthodologie"
+    - "paradigme"
+    - "heuristique"
+    - "épistémologie"
+  
+  # --------------------------------------------------------------------------
+  # Reference Vocabulary
+  # --------------------------------------------------------------------------
+  # Path to a file containing reference vocabulary for coverage analysis
+  # The file should contain one word per line
+  #
+  # OPTIONS:
+  #   - Use provided French frequency lexicon (default)
+  #   - Provide custom vocabulary list for your domain
+  #   - Set to null to skip vocabulary coverage analysis
+  #
+  # EXAMPLE FILE FORMAT:
+  #   le
+  #   de
+  #   un
+  #   être
+  #   ...
+  #
+  reference_vocabulary: "src/fongbe_quality/resources/french_frequency_lexicon.txt"
+
+# ============================================================================
+# PIPELINE CONFIGURATION
+# ============================================================================
+# Configure input/output paths and enabled analyzers
+
+pipeline:
+  # Input directory containing CSV files with French sentences
+  # Each CSV file should have columns: fongbe,french
+  # File names are used to determine domain (e.g., "education.csv" -> "education")
+  input_directory: "data/my_project/input"
+  
+  # Output directory for analysis results
+  # The pipeline will create subdirectories for different output types
+  output_directory: "data/my_project/output"
+  
+  # --------------------------------------------------------------------------
+  # Enable Specific Analyzers
+  # --------------------------------------------------------------------------
+  # You can selectively enable/disable analyzers based on your needs
+  #
+  # AVAILABLE ANALYZERS:
+  #   - structural: Sentence length and structure analysis
+  #   - linguistic: Readability and complexity analysis
+  #   - diversity: Vocabulary and structural diversity
+  #   - domain: Domain distribution and balance
+  #   - gender_bias: Gender representation and bias detection
+  #
+  # OPTIONS:
+  #   - List specific analyzers: ["structural", "linguistic"]
+  #   - Enable all: ["all"]
+  #   - Disable specific: ["all", "!gender_bias"]
+  #
+  enable_analyzers:
+    - structural
+    - linguistic
+    - diversity
+    - domain
+    - gender_bias
+  
+  # Language code (currently only French is supported)
+  language: "fr"
+
+# ============================================================================
+# OUTPUT CONFIGURATION
+# ============================================================================
+# Configure which outputs to generate
+
+outputs:
+  # Generate interactive HTML dashboard with visualizations
+  generate_dashboard: true
+  
+  # Export detailed metrics to JSON file
+  export_json: true
+  
+  # Export annotated CSV with quality scores per sentence
+  export_csv: true
+  
+  # Generate PDF report (requires reportlab)
+  # Set to false if you don't need PDF reports (faster execution)
+  export_pdf: false
+  
+  # Create execution log with timestamp and summary
+  create_log: true
+
+# ============================================================================
+# LOGGING CONFIGURATION
+# ============================================================================
+# Configure logging verbosity and output
+
+logging:
+  # Logging level
+  # OPTIONS: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  #   - DEBUG: Detailed information for troubleshooting
+  #   - INFO: General information about pipeline execution
+  #   - WARNING: Warning messages only
+  #   - ERROR: Error messages only
+  level: "INFO"
+  
+  # Path to log file (relative to output directory)
+  # Set to null to disable file logging
+  log_file: "pipeline.log"
+
+
+# ============================================================================
+# USE CASE EXAMPLES
+# ============================================================================
+#
+# Below are example configurations for different use cases.
+# Uncomment and modify the relevant section for your needs.
+#
+# ----------------------------------------------------------------------------
+# USE CASE 1: ASR Training Data (Strict Quality)
+# ----------------------------------------------------------------------------
+# Goal: High-quality, clear sentences for ASR model training
+# Characteristics: Short sentences, simple vocabulary, balanced domains
+#
+# analysis:
+#   min_words: 3
+#   max_words: 20
+#   max_readability_score: 60
+#   target_ttr: 0.60
+#   min_domain_representation: 0.15
+#   max_domain_representation: 0.25
+#
+# ----------------------------------------------------------------------------
+# USE CASE 2: Conversational Data (Flexible)
+# ----------------------------------------------------------------------------
+# Goal: Natural conversational sentences with variety
+# Characteristics: Variable length, moderate complexity, flexible domains
+#
+# analysis:
+#   min_words: 2
+#   max_words: 25
+#   max_readability_score: 70
+#   target_ttr: 0.55
+#   min_domain_representation: 0.05
+#   max_domain_representation: 0.40
+#
+# ----------------------------------------------------------------------------
+# USE CASE 3: Educational Content (Balanced)
+# ----------------------------------------------------------------------------
+# Goal: Educational sentences with good vocabulary coverage
+# Characteristics: Medium length, controlled complexity, diverse vocabulary
+#
+# analysis:
+#   min_words: 5
+#   max_words: 15
+#   max_readability_score: 50
+#   target_ttr: 0.70
+#   min_domain_representation: 0.10
+#   max_domain_representation: 0.30
+#
+# ----------------------------------------------------------------------------
+# USE CASE 4: Quick Analysis (Fast Mode)
+# ----------------------------------------------------------------------------
+# Goal: Fast analysis with minimal analyzers
+# Characteristics: Only essential metrics
+#
+# pipeline:
+#   enable_analyzers:
+#     - structural
+#     - domain
+# outputs:
+#   generate_dashboard: true
+#   export_json: false
+#   export_csv: false
+#   export_pdf: false
+#
+# ============================================================================

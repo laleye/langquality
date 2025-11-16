@@ -1,0 +1,195 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      test_pypi:
+        description: 'Publish to TestPyPI instead of PyPI'
+        required: false
+        default: 'true'
+        type: boolean
+
+jobs:
+  build:
+    name: Build distribution
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for proper versioning
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine wheel setuptools
+      
+      - name: Verify package metadata
+        run: |
+          python setup.py check --strict --metadata
+      
+      - name: Build package
+        run: python -m build
+      
+      - name: Check distribution
+        run: |
+          twine check dist/*
+          ls -lh dist/
+      
+      - name: Verify package contents
+        run: |
+          python -m pip install dist/*.whl
+          python -c "import langquality; print(f'LangQuality version: {langquality.__version__ if hasattr(langquality, \"__version__\") else \"1.0.0\"}')"
+          python -c "from langquality.language_packs.manager import LanguagePackManager; print('Language pack manager imported successfully')"
+      
+      - name: Store distribution packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+  
+  test-installation:
+    name: Test installation
+    needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+    
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+      
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install dist/*.whl
+      
+      - name: Test CLI
+        run: |
+          langquality --help
+          langquality pack list
+      
+      - name: Test imports
+        run: |
+          python -c "import langquality"
+          python -c "from langquality.language_packs.manager import LanguagePackManager"
+          python -c "from langquality.analyzers.registry import AnalyzerRegistry"
+  
+  publish-to-testpypi:
+    name: Publish to TestPyPI
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.test_pypi == true
+    needs: [build, test-installation]
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/langquality
+    permissions:
+      id-token: write
+    
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+      
+      - name: Publish to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          skip-existing: true
+      
+      - name: Wait for package to be available
+        run: sleep 60
+      
+      - name: Test installation from TestPyPI
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ langquality
+          langquality --version || echo "Version command not available"
+          langquality --help
+  
+  publish-to-pypi:
+    name: Publish to PyPI
+    if: github.event_name == 'release' && github.event.action == 'published'
+    needs: [build, test-installation]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/langquality
+    permissions:
+      id-token: write
+    
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+      
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+      
+      - name: Wait for package to be available
+        run: sleep 60
+      
+      - name: Verify PyPI installation
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install langquality
+          langquality --version || echo "Version command not available"
+          langquality --help
+  
+  create-github-release-notes:
+    name: Create GitHub Release Notes
+    if: github.event_name == 'release' && github.event.action == 'published'
+    needs: publish-to-pypi
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Extract changelog for this version
+        id: changelog
+        run: |
+          VERSION="${{ github.event.release.tag_name }}"
+          VERSION="${VERSION#v}"  # Remove 'v' prefix if present
+          echo "Extracting changelog for version $VERSION"
+          
+          # Extract the relevant section from CHANGELOG.md
+          awk "/## \[${VERSION}\]/,/## \[/" CHANGELOG.md | sed '$d' > release_notes.md
+          
+          if [ ! -s release_notes.md ]; then
+            echo "No changelog entry found for version $VERSION"
+            echo "See [CHANGELOG.md](https://github.com/langquality/langquality/blob/main/CHANGELOG.md) for details." > release_notes.md
+          fi
+      
+      - name: Update release notes
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: release_notes.md
+          files: |
+            dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

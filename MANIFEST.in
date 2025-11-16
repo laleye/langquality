@@ -1,0 +1,52 @@
+# MANIFEST.in - Specifies additional files to include in the distribution
+
+# Include documentation
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include CODE_OF_CONDUCT.md
+include GOVERNANCE.md
+
+# Include configuration files
+include requirements.txt
+include requirements-dev.txt
+include pyproject.toml
+include setup.py
+
+# Include all language pack files
+recursive-include src/langquality/language_packs/packs *.yaml
+recursive-include src/langquality/language_packs/packs *.json
+recursive-include src/langquality/language_packs/packs *.txt
+recursive-include src/langquality/language_packs/packs *.md
+recursive-include src/langquality/language_packs/packs *.example
+
+# Include resource files
+recursive-include src/langquality/resources *
+recursive-include src/langquality/outputs/templates *
+recursive-include src/fongbe_quality/resources *
+recursive-include src/fongbe_quality/outputs/templates *
+
+# Include type stubs if any
+recursive-include src *.pyi
+
+# Exclude unnecessary files
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude *.dylib
+global-exclude .git*
+global-exclude .coverage
+global-exclude .pytest_cache
+global-exclude .mypy_cache
+global-exclude .tox
+global-exclude *.egg-info
+
+# Exclude test files from distribution
+prune tests
+prune docs
+prune examples
+prune .github
+prune htmlcov
+prune .benchmarks

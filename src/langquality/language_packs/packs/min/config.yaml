@@ -1,0 +1,6 @@
+# Minimal Language Pack Example
+# This pack has only the required fields
+
+language:
+  code: "min"
+  name: "Minimal Example"

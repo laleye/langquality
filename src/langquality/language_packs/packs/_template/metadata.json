@@ -1,0 +1,34 @@
+{
+  "_comment": "Language Pack Metadata Template - Update all fields below",
+  "version": "0.1.0",
+  "author": "Your Name",
+  "email": "your.email@example.com",
+  "license": "MIT",
+  "description": "Language pack for [Language Name] - Brief description of the language and what this pack provides",
+  "created": "2024-01-01",
+  "updated": "2024-01-01",
+  "contributors": [
+    "Your Name",
+    "Contributor 2 (optional)"
+  ],
+  "status": "experimental",
+  "_status_options": "experimental, beta, stable, deprecated",
+  "coverage": {
+    "lexicon_size": 0,
+    "stopwords_size": 0,
+    "domains_covered": [],
+    "has_gender_resources": false,
+    "has_stereotype_detection": false
+  },
+  "dependencies": {
+    "spacy_model": null,
+    "nltk_data": null,
+    "min_langquality_version": "1.0.0",
+    "python_version": ">=3.8"
+  },
+  "references": [
+    "https://example.com/language-resources",
+    "https://doi.org/10.xxxx/language-study"
+  ],
+  "notes": "Additional notes about this language pack, special considerations, or limitations"
+}

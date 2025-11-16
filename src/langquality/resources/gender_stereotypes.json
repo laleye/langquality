@@ -1,0 +1,73 @@
+{
+  "stereotypes": [
+    {
+      "type": "profession_masculine",
+      "patterns": [
+        "homme.*ingénieur",
+        "homme.*directeur",
+        "homme.*médecin",
+        "homme.*pilote",
+        "homme.*scientifique",
+        "garçon.*ingénieur",
+        "garçon.*scientifique"
+      ],
+      "description": "Association of masculine gender with technical/leadership professions"
+    },
+    {
+      "type": "profession_feminine",
+      "patterns": [
+        "femme.*infirmière",
+        "femme.*secrétaire",
+        "femme.*assistante",
+        "femme.*ménagère",
+        "fille.*infirmière",
+        "fille.*secrétaire"
+      ],
+      "description": "Association of feminine gender with care/support professions"
+    },
+    {
+      "type": "domestic_feminine",
+      "patterns": [
+        "femme.*cuisine",
+        "femme.*ménage",
+        "femme.*enfants",
+        "mère.*cuisine",
+        "mère.*ménage",
+        "épouse.*cuisine"
+      ],
+      "description": "Association of women with domestic tasks"
+    },
+    {
+      "type": "leadership_masculine",
+      "patterns": [
+        "homme.*chef",
+        "homme.*patron",
+        "homme.*leader",
+        "père.*travail",
+        "mari.*travail"
+      ],
+      "description": "Association of men with leadership and work"
+    },
+    {
+      "type": "emotional_feminine",
+      "patterns": [
+        "femme.*émotive",
+        "femme.*sensible",
+        "femme.*pleure",
+        "fille.*émotive",
+        "fille.*sensible"
+      ],
+      "description": "Association of women with emotional traits"
+    },
+    {
+      "type": "strength_masculine",
+      "patterns": [
+        "homme.*fort",
+        "homme.*puissant",
+        "garçon.*fort",
+        "garçon.*courageux"
+      ],
+      "description": "Association of men with physical strength"
+    }
+  ]
+}

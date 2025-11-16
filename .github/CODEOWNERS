@@ -1,0 +1,54 @@
+# Code Owners for LangQuality
+# 
+# This file defines individuals or teams responsible for code in this repository.
+# Code owners are automatically requested for review when someone opens a pull request
+# that modifies code that they own.
+#
+# More info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners for everything in the repo
+# These owners will be requested for review unless a later match takes precedence
+* @langquality/core-maintainers
+
+# Core system components
+/src/langquality/pipeline/ @langquality/core-maintainers
+/src/langquality/config/ @langquality/core-maintainers
+/src/langquality/data/ @langquality/core-maintainers
+
+# Analyzer system
+/src/langquality/analyzers/ @langquality/analyzer-team
+/src/langquality/analyzers/base.py @langquality/core-maintainers
+/src/langquality/analyzers/registry.py @langquality/core-maintainers
+
+# Language pack system
+/src/langquality/language_packs/ @langquality/language-pack-team
+/src/langquality/language_packs/manager.py @langquality/core-maintainers
+/src/langquality/language_packs/validation.py @langquality/core-maintainers
+
+# Individual language packs (can be owned by language-specific maintainers)
+/src/langquality/language_packs/packs/fon/ @langquality/fongbe-maintainers
+# /src/langquality/language_packs/packs/eng/ @langquality/english-maintainers
+# /src/langquality/language_packs/packs/fra/ @langquality/french-maintainers
+
+# CLI and user interface
+/src/langquality/cli.py @langquality/core-maintainers
+
+# Tests
+/tests/ @langquality/core-maintainers
+
+# Documentation
+/docs/ @langquality/documentation-team
+/README.md @langquality/core-maintainers
+/CONTRIBUTING.md @langquality/core-maintainers
+
+# Configuration and infrastructure
+/.github/ @langquality/core-maintainers
+/setup.py @langquality/core-maintainers
+/pyproject.toml @langquality/core-maintainers
+/requirements.txt @langquality/core-maintainers
+
+# Governance documents
+/CODE_OF_CONDUCT.md @langquality/core-maintainers
+/GOVERNANCE.md @langquality/core-maintainers
+/LICENSE @langquality/core-maintainers
+/CHANGELOG.md @langquality/core-maintainers

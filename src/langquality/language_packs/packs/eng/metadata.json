@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "author": "LangQuality Community",
+  "email": "community@langquality.org",
+  "license": "MIT",
+  "description": "Language pack for English - A Germanic language spoken worldwide as a first or second language. This pack includes comprehensive resources for analyzing English text datasets with full NLP support including POS tagging, dependency parsing, and gender bias detection.",
+  "created": "2024-11-15",
+  "updated": "2024-11-15",
+  "contributors": [
+    "LangQuality Core Team"
+  ],
+  "status": "stable",
+  "coverage": {
+    "lexicon_size": 15000,
+    "stopwords_size": 180,
+    "domains_covered": [
+      "health",
+      "education",
+      "technology",
+      "business",
+      "culture",
+      "science",
+      "politics",
+      "sports",
+      "entertainment",
+      "finance"
+    ],
+    "has_gender_resources": true,
+    "has_stereotype_detection": true
+  },
+  "dependencies": {
+    "spacy_model": "en_core_web_md",
+    "min_langquality_version": "1.0.0",
+    "python_version": ">=3.8"
+  },
+  "references": [
+    "https://spacy.io/models/en",
+    "https://github.com/langquality/langquality-toolkit"
+  ],
+  "notes": "This language pack provides full NLP support for English with spaCy. It includes comprehensive gender bias detection resources and supports advanced linguistic analysis. English is widely used in NLP research and has extensive tool support."
+}

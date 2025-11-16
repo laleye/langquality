@@ -1,0 +1,95 @@
+# English Language Pack Configuration
+# Language: English
+# ISO 639-3: eng
+
+language:
+  code: "eng"
+  name: "English"
+  native_name: "English"
+  family: "Indo-European"
+  subfamily: "Germanic"
+  script: "Latin"
+  direction: "ltr"
+  region: "United States, United Kingdom, Canada, Australia, New Zealand, worldwide"
+
+# Tokenization settings
+tokenization:
+  method: "spacy"
+  model: "en_core_web_md"
+  custom_rules: []
+  fallback: "whitespace"
+
+# Analysis thresholds
+thresholds:
+  structural:
+    min_words: 3
+    max_words: 30
+    min_chars: 10
+    max_chars: 300
+    check_punctuation: true
+    check_capitalization: true
+  
+  linguistic:
+    min_readability_score: 0.0
+    max_readability_score: 80.0
+    enable_pos_tagging: true
+    enable_dependency_parsing: true
+    check_jargon: true
+  
+  diversity:
+    target_ttr: 0.70
+    min_unique_words: 200
+    check_duplicates: true
+    duplicate_threshold: 0.95
+  
+  domain:
+    min_representation: 0.05
+    max_representation: 0.40
+    balance_threshold: 0.15
+    require_domain_labels: false
+  
+  gender:
+    target_ratio: [0.4, 0.6]
+    check_stereotypes: true
+    check_profession_bias: true
+
+# Resource files (all optional)
+resources:
+  lexicon: "lexicon.txt"
+  stopwords: "stopwords.txt"
+  gender_terms: "gender_terms.json"
+  professions: "professions.json"
+  stereotypes: "gender_stereotypes.json"
+
+# Enabled analyzers
+analyzers:
+  enabled:
+    - structural
+    - linguistic
+    - diversity
+    - domain
+    - gender_bias
+  disabled: []
+
+# Custom analyzer plugins
+plugins: []
+
+# Domain-specific settings
+domains:
+  expected:
+    - health
+    - education
+    - technology
+    - business
+    - culture
+    - science
+    - politics
+    - sports
+    - entertainment
+    - finance
+  
+# Output preferences
+output:
+  language: "en"
+  date_format: "%m/%d/%Y"
+  number_format: "en_US"

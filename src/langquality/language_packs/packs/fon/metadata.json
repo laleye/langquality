@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "author": "Fongbe Data Quality Project",
+  "email": "contact@example.com",
+  "license": "MIT",
+  "description": "Language pack for Fongbe (Benin) - A Gbe language spoken in Benin and Togo. This pack includes resources for analyzing French-Fongbe bilingual datasets commonly used in ASR and translation projects.",
+  "created": "2024-01-15",
+  "updated": "2024-11-15",
+  "contributors": [
+    "Original Fongbe Data Quality Project Team"
+  ],
+  "status": "stable",
+  "coverage": {
+    "lexicon_size": 5000,
+    "asr_vocabulary_size": 500,
+    "domains_covered": [
+      "health",
+      "education",
+      "agriculture",
+      "commerce",
+      "family",
+      "public_services"
+    ],
+    "has_gender_resources": true,
+    "has_stereotype_detection": true
+  },
+  "dependencies": {
+    "spacy_model": "fr_core_news_md",
+    "min_langquality_version": "1.0.0",
+    "python_version": ">=3.8"
+  },
+  "references": [
+    "https://github.com/fongbe-data-quality",
+    "Fongbe language resources for low-resource NLP"
+  ],
+  "notes": "This language pack uses French as a bridge language for NLP processing, as Fongbe is a low-resource language with limited NLP tools. The resources are optimized for ASR and translation quality assessment."
+}

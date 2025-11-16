@@ -1,0 +1,79 @@
+{
+  "professions": [
+    {
+      "masculine": "médecin",
+      "feminine": "médecin",
+      "neutral": true
+    },
+    {
+      "masculine": "infirmier",
+      "feminine": "infirmière",
+      "neutral": false
+    },
+    {
+      "masculine": "professeur",
+      "feminine": "professeure",
+      "neutral": false
+    },
+    {
+      "masculine": "enseignant",
+      "feminine": "enseignante",
+      "neutral": false
+    },
+    {
+      "masculine": "directeur",
+      "feminine": "directrice",
+      "neutral": false
+    },
+    {
+      "masculine": "ingénieur",
+      "feminine": "ingénieure",
+      "neutral": false
+    },
+    {
+      "masculine": "avocat",
+      "feminine": "avocate",
+      "neutral": false
+    },
+    {
+      "masculine": "agriculteur",
+      "feminine": "agricultrice",
+      "neutral": false
+    },
+    {
+      "masculine": "commerçant",
+      "feminine": "commerçante",
+      "neutral": false
+    },
+    {
+      "masculine": "vendeur",
+      "feminine": "vendeuse",
+      "neutral": false
+    },
+    {
+      "masculine": "secrétaire",
+      "feminine": "secrétaire",
+      "neutral": true
+    },
+    {
+      "masculine": "cuisinier",
+      "feminine": "cuisinière",
+      "neutral": false
+    },
+    {
+      "masculine": "chauffeur",
+      "feminine": "chauffeuse",
+      "neutral": false
+    },
+    {
+      "masculine": "policier",
+      "feminine": "policière",
+      "neutral": false
+    },
+    {
+      "masculine": "pompier",
+      "feminine": "pompière",
+      "neutral": false
+    }
+  ]
+}

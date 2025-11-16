@@ -1,0 +1,124 @@
+{
+  "_comment": "Example Gender Stereotypes File - Remove this comment and rename to gender_stereotypes.json when ready",
+  "_instructions": "Document common gender stereotypes in your language/culture. This helps identify biased language in datasets.",
+  
+  "stereotypes": [
+    {
+      "category": "domestic",
+      "gender": "feminine",
+      "terms": [
+        "cooking",
+        "cleaning",
+        "laundry",
+        "childcare",
+        "housework",
+        "homemaker"
+      ],
+      "_note": "Domestic work stereotypically associated with women"
+    },
+    {
+      "category": "professional",
+      "gender": "masculine",
+      "terms": [
+        "career",
+        "leadership",
+        "business",
+        "executive",
+        "authority",
+        "power"
+      ],
+      "_note": "Professional success stereotypically associated with men"
+    },
+    {
+      "category": "emotional",
+      "gender": "feminine",
+      "terms": [
+        "sensitive",
+        "emotional",
+        "caring",
+        "nurturing",
+        "empathetic",
+        "compassionate"
+      ],
+      "_note": "Emotional traits stereotypically associated with women"
+    },
+    {
+      "category": "physical",
+      "gender": "masculine",
+      "terms": [
+        "strong",
+        "powerful",
+        "athletic",
+        "muscular",
+        "tough",
+        "aggressive"
+      ],
+      "_note": "Physical strength stereotypically associated with men"
+    },
+    {
+      "category": "appearance",
+      "gender": "feminine",
+      "terms": [
+        "beautiful",
+        "pretty",
+        "attractive",
+        "elegant",
+        "fashionable"
+      ],
+      "_note": "Appearance focus stereotypically associated with women"
+    },
+    {
+      "category": "technical",
+      "gender": "masculine",
+      "terms": [
+        "technical",
+        "engineering",
+        "mathematics",
+        "science",
+        "technology",
+        "logical"
+      ],
+      "_note": "Technical skills stereotypically associated with men"
+    }
+  ],
+  
+  "context_patterns": [
+    {
+      "pattern": "working mother",
+      "category": "professional",
+      "gender": "feminine",
+      "note": "Implies conflict between work and motherhood"
+    },
+    {
+      "pattern": "career woman",
+      "category": "professional",
+      "gender": "feminine",
+      "note": "Implies being career-focused is unusual for women"
+    },
+    {
+      "pattern": "male nurse",
+      "category": "care",
+      "gender": "masculine",
+      "note": "Implies nursing is typically feminine"
+    },
+    {
+      "pattern": "female engineer",
+      "category": "technical",
+      "gender": "feminine",
+      "note": "Implies engineering is typically masculine"
+    }
+  ],
+  
+  "_categories": [
+    "domestic - household and family work",
+    "professional - career and business",
+    "emotional - feelings and empathy",
+    "physical - strength and athletics",
+    "appearance - looks and fashion",
+    "technical - STEM and technology",
+    "care - helping and nurturing",
+    "leadership - authority and management",
+    "communication - talking and social skills",
+    "risk - bravery and adventure"
+  ]
+}

@@ -1,0 +1,62 @@
+# Default configuration for Fongbe Data Quality Pipeline
+# This file contains default analysis parameters based on best practices
+# for ASR and translation for low-resource languages
+
+analysis:
+  # Sentence length constraints (in words)
+  min_words: 3
+  max_words: 20
+  
+  # Readability scores (Flesch-Kincaid)
+  min_readability_score: 0
+  max_readability_score: 60
+  
+  # Diversity metrics
+  target_ttr: 0.6  # Type-Token Ratio target
+  
+  # Domain balance thresholds
+  min_domain_representation: 0.10  # 10% minimum per domain
+  max_domain_representation: 0.30  # 30% maximum per domain
+  
+  # Gender bias thresholds
+  target_gender_ratio:
+    - 0.4  # Minimum acceptable ratio (40%)
+    - 0.6  # Maximum acceptable ratio (60%)
+  
+  # Custom jargon terms to flag (add domain-specific terms)
+  jargon_terms: []
+  
+  # Path to reference vocabulary file (optional)
+  reference_vocabulary: null
+
+# Pipeline configuration
+pipeline:
+  # Input/output directories
+  input_directory: "data/input"
+  output_directory: "data/output"
+  
+  # Analyzers to enable (use "all" or list specific ones)
+  # Available: structural, linguistic, diversity, domain, gender_bias
+  enable_analyzers:
+    - all
+  
+  # Language code
+  language: "fr"
+
+# Output configuration
+outputs:
+  # Generate dashboard
+  generate_dashboard: true
+  
+  # Export formats
+  export_json: true
+  export_csv: true
+  export_pdf: true
+  
+  # Create execution log
+  create_log: true
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: null  # Set to a path to log to file

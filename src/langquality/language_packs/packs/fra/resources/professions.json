@@ -1,0 +1,158 @@
+{
+  "professions": [
+    {
+      "neutral": "médecin",
+      "masculine": "médecin",
+      "feminine": "médecin",
+      "masculine_alt": "docteur",
+      "feminine_alt": "docteure"
+    },
+    {
+      "neutral": "infirmier",
+      "masculine": "infirmier",
+      "feminine": "infirmière"
+    },
+    {
+      "neutral": "enseignant",
+      "masculine": "enseignant",
+      "feminine": "enseignante",
+      "masculine_alt": "professeur",
+      "feminine_alt": "professeure"
+    },
+    {
+      "neutral": "ingénieur",
+      "masculine": "ingénieur",
+      "feminine": "ingénieure"
+    },
+    {
+      "neutral": "avocat",
+      "masculine": "avocat",
+      "feminine": "avocate"
+    },
+    {
+      "neutral": "directeur",
+      "masculine": "directeur",
+      "feminine": "directrice"
+    },
+    {
+      "neutral": "chef",
+      "masculine": "chef",
+      "feminine": "cheffe"
+    },
+    {
+      "neutral": "développeur",
+      "masculine": "développeur",
+      "feminine": "développeuse"
+    },
+    {
+      "neutral": "chercheur",
+      "masculine": "chercheur",
+      "feminine": "chercheuse"
+    },
+    {
+      "neutral": "scientifique",
+      "masculine": "scientifique",
+      "feminine": "scientifique"
+    },
+    {
+      "neutral": "artiste",
+      "masculine": "artiste",
+      "feminine": "artiste"
+    },
+    {
+      "neutral": "écrivain",
+      "masculine": "écrivain",
+      "feminine": "écrivaine"
+    },
+    {
+      "neutral": "journaliste",
+      "masculine": "journaliste",
+      "feminine": "journaliste"
+    },
+    {
+      "neutral": "entrepreneur",
+      "masculine": "entrepreneur",
+      "feminine": "entrepreneuse"
+    },
+    {
+      "neutral": "comptable",
+      "masculine": "comptable",
+      "feminine": "comptable"
+    },
+    {
+      "neutral": "architecte",
+      "masculine": "architecte",
+      "feminine": "architecte"
+    },
+    {
+      "neutral": "pharmacien",
+      "masculine": "pharmacien",
+      "feminine": "pharmacienne"
+    },
+    {
+      "neutral": "dentiste",
+      "masculine": "dentiste",
+      "feminine": "dentiste"
+    },
+    {
+      "neutral": "psychologue",
+      "masculine": "psychologue",
+      "feminine": "psychologue"
+    },
+    {
+      "neutral": "policier",
+      "masculine": "policier",
+      "feminine": "policière"
+    },
+    {
+      "neutral": "pompier",
+      "masculine": "pompier",
+      "feminine": "pompière"
+    },
+    {
+      "neutral": "cuisinier",
+      "masculine": "cuisinier",
+      "feminine": "cuisinière"
+    },
+    {
+      "neutral": "serveur",
+      "masculine": "serveur",
+      "feminine": "serveuse"
+    },
+    {
+      "neutral": "vendeur",
+      "masculine": "vendeur",
+      "feminine": "vendeuse"
+    },
+    {
+      "neutral": "coiffeur",
+      "masculine": "coiffeur",
+      "feminine": "coiffeuse"
+    },
+    {
+      "neutral": "mécanicien",
+      "masculine": "mécanicien",
+      "feminine": "mécanicienne"
+    },
+    {
+      "neutral": "électricien",
+      "masculine": "électricien",
+      "feminine": "électricienne"
+    },
+    {
+      "neutral": "plombier",
+      "masculine": "plombier",
+      "feminine": "plombière"
+    },
+    {
+      "neutral": "agriculteur",
+      "masculine": "agriculteur",
+      "feminine": "agricultrice"
+    },
+    {
+      "neutral": "secrétaire",
+      "masculine": "secrétaire",
+      "feminine": "secrétaire"
+    }
+  ]
+}

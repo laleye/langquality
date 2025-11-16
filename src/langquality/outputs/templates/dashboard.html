@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fongbe Data Quality Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        header .timestamp {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        
+        nav {
+            background: white;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .section h3 {
+            color: #555;
+            font-size: 1.3em;
+            margin: 20px 0 15px 0;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .summary-card h3 {
+            color: white;
+            font-size: 1em;
+            margin: 0 0 10px 0;
+            opacity: 0.9;
+        }
+        
+        .summary-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .summary-card .label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .metric-label {
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .metric-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .chart-container {
+            margin: 20px 0;
+            min-height: 400px;
+        }
+        
+        .indicator {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+        
+        .indicator.good {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .indicator.warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .indicator.critical {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .recommendation {
+            background: white;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .recommendation.critical {
+            border-left-color: #dc3545;
+        }
+        
+        .recommendation.warning {
+            border-left-color: #ffc107;
+        }
+        
+        .recommendation.info {
+            border-left-color: #17a2b8;
+        }
+        
+        .recommendation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .recommendation-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .recommendation-severity {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .recommendation-severity.critical {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .recommendation-severity.warning {
+            background-color: #ffc107;
+            color: #333;
+        }
+        
+        .recommendation-severity.info {
+            background-color: #17a2b8;
+            color: white;
+        }
+        
+        .recommendation-description {
+            color: #666;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        .recommendation-actions {
+            margin-top: 15px;
+        }
+        
+        .recommendation-actions h4 {
+            color: #555;
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        
+        .recommendation-actions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .recommendation-actions li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .recommendation-actions li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .affected-count {
+            display: inline-block;
+            background-color: #e9ecef;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            color: #495057;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📊 Fongbe Data Quality Dashboard</h1>
+            <div class="subtitle">Analyse de qualité des données textuelles français-fongbe</div>
+            <div class="timestamp">{{ timestamp }}</div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#summary">Vue d'ensemble</a></li>
+                <li><a href="#structural">Analyse structurelle</a></li>
+                <li><a href="#linguistic">Complexité linguistique</a></li>
+                <li><a href="#diversity">Diversité</a></li>
+                <li><a href="#domain">Distribution des domaines</a></li>
+                <li><a href="#gender">Biais de genre</a></li>
+                <li><a href="#recommendations">Recommandations</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Summary Section -->
+        <section id="summary" class="section">
+            <h2>Vue d'ensemble</h2>
+            {{ summary_content }}
+        </section>
+        
+        <!-- Structural Analysis Section -->
+        <section id="structural" class="section">
+            <h2>Analyse structurelle</h2>
+            {{ structural_content }}
+        </section>
+        
+        <!-- Linguistic Analysis Section -->
+        <section id="linguistic" class="section">
+            <h2>Complexité linguistique</h2>
+            {{ linguistic_content }}
+        </section>
+        
+        <!-- Diversity Analysis Section -->
+        <section id="diversity" class="section">
+            <h2>Diversité vocabulaire et structurelle</h2>
+            {{ diversity_content }}
+        </section>
+        
+        <!-- Domain Analysis Section -->
+        <section id="domain" class="section">
+            <h2>Distribution des domaines</h2>
+            {{ domain_content }}
+        </section>
+        
+        <!-- Gender Bias Analysis Section -->
+        <section id="gender" class="section">
+            <h2>Analyse des biais de genre</h2>
+            {{ gender_content }}
+        </section>
+        
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="section">
+            <h2>Recommandations prioritaires</h2>
+            {{ recommendations_content }}
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Généré par Fongbe Data Quality Pipeline</p>
+            <p>Pour plus d'informations, consultez la documentation du projet</p>
+        </div>
+    </footer>
+</body>
+</html>

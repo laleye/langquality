@@ -1,0 +1,224 @@
+{
+  "professions": [
+    {
+      "neutral": "doctor",
+      "masculine": "doctor",
+      "feminine": "doctor"
+    },
+    {
+      "neutral": "nurse",
+      "masculine": "male nurse",
+      "feminine": "nurse"
+    },
+    {
+      "neutral": "teacher",
+      "masculine": "teacher",
+      "feminine": "teacher"
+    },
+    {
+      "neutral": "professor",
+      "masculine": "professor",
+      "feminine": "professor"
+    },
+    {
+      "neutral": "engineer",
+      "masculine": "engineer",
+      "feminine": "engineer"
+    },
+    {
+      "neutral": "lawyer",
+      "masculine": "lawyer",
+      "feminine": "lawyer"
+    },
+    {
+      "neutral": "attorney",
+      "masculine": "attorney",
+      "feminine": "attorney"
+    },
+    {
+      "neutral": "manager",
+      "masculine": "manager",
+      "feminine": "manager"
+    },
+    {
+      "neutral": "director",
+      "masculine": "director",
+      "feminine": "director"
+    },
+    {
+      "neutral": "ceo",
+      "masculine": "ceo",
+      "feminine": "ceo"
+    },
+    {
+      "neutral": "developer",
+      "masculine": "developer",
+      "feminine": "developer"
+    },
+    {
+      "neutral": "programmer",
+      "masculine": "programmer",
+      "feminine": "programmer"
+    },
+    {
+      "neutral": "scientist",
+      "masculine": "scientist",
+      "feminine": "scientist"
+    },
+    {
+      "neutral": "researcher",
+      "masculine": "researcher",
+      "feminine": "researcher"
+    },
+    {
+      "neutral": "artist",
+      "masculine": "artist",
+      "feminine": "artist"
+    },
+    {
+      "neutral": "writer",
+      "masculine": "writer",
+      "feminine": "writer"
+    },
+    {
+      "neutral": "author",
+      "masculine": "author",
+      "feminine": "author"
+    },
+    {
+      "neutral": "journalist",
+      "masculine": "journalist",
+      "feminine": "journalist"
+    },
+    {
+      "neutral": "entrepreneur",
+      "masculine": "entrepreneur",
+      "feminine": "entrepreneur"
+    },
+    {
+      "neutral": "accountant",
+      "masculine": "accountant",
+      "feminine": "accountant"
+    },
+    {
+      "neutral": "architect",
+      "masculine": "architect",
+      "feminine": "architect"
+    },
+    {
+      "neutral": "pharmacist",
+      "masculine": "pharmacist",
+      "feminine": "pharmacist"
+    },
+    {
+      "neutral": "dentist",
+      "masculine": "dentist",
+      "feminine": "dentist"
+    },
+    {
+      "neutral": "psychologist",
+      "masculine": "psychologist",
+      "feminine": "psychologist"
+    },
+    {
+      "neutral": "therapist",
+      "masculine": "therapist",
+      "feminine": "therapist"
+    },
+    {
+      "neutral": "police officer",
+      "masculine": "policeman",
+      "feminine": "policewoman"
+    },
+    {
+      "neutral": "firefighter",
+      "masculine": "fireman",
+      "feminine": "firewoman"
+    },
+    {
+      "neutral": "flight attendant",
+      "masculine": "steward",
+      "feminine": "stewardess"
+    },
+    {
+      "neutral": "server",
+      "masculine": "waiter",
+      "feminine": "waitress"
+    },
+    {
+      "neutral": "actor",
+      "masculine": "actor",
+      "feminine": "actress"
+    },
+    {
+      "neutral": "chef",
+      "masculine": "chef",
+      "feminine": "chef"
+    },
+    {
+      "neutral": "cook",
+      "masculine": "cook",
+      "feminine": "cook"
+    },
+    {
+      "neutral": "salesperson",
+      "masculine": "salesman",
+      "feminine": "saleswoman"
+    },
+    {
+      "neutral": "hairdresser",
+      "masculine": "barber",
+      "feminine": "hairdresser"
+    },
+    {
+      "neutral": "mechanic",
+      "masculine": "mechanic",
+      "feminine": "mechanic"
+    },
+    {
+      "neutral": "electrician",
+      "masculine": "electrician",
+      "feminine": "electrician"
+    },
+    {
+      "neutral": "plumber",
+      "masculine": "plumber",
+      "feminine": "plumber"
+    },
+    {
+      "neutral": "farmer",
+      "masculine": "farmer",
+      "feminine": "farmer"
+    },
+    {
+      "neutral": "secretary",
+      "masculine": "secretary",
+      "feminine": "secretary"
+    },
+    {
+      "neutral": "assistant",
+      "masculine": "assistant",
+      "feminine": "assistant"
+    },
+    {
+      "neutral": "pilot",
+      "masculine": "pilot",
+      "feminine": "pilot"
+    },
+    {
+      "neutral": "soldier",
+      "masculine": "soldier",
+      "feminine": "soldier"
+    },
+    {
+      "neutral": "athlete",
+      "masculine": "athlete",
+      "feminine": "athlete"
+    },
+    {
+      "neutral": "coach",
+      "masculine": "coach",
+      "feminine": "coach"
+    }
+  ]
+}

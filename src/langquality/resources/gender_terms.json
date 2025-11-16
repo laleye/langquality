@@ -1,0 +1,44 @@
+{
+  "masculine": {
+    "pronouns": [
+      "il",
+      "lui",
+      "le",
+      "son",
+      "ses",
+      "celui",
+      "ceux"
+    ],
+    "articles": [
+      "un",
+      "du",
+      "au"
+    ],
+    "titles": [
+      "monsieur",
+      "m.",
+      "mr"
+    ]
+  },
+  "feminine": {
+    "pronouns": [
+      "elle",
+      "la",
+      "sa",
+      "ses",
+      "celle",
+      "celles"
+    ],
+    "articles": [
+      "une",
+      "de la",
+      "à la"
+    ],
+    "titles": [
+      "madame",
+      "mme",
+      "mademoiselle",
+      "mlle"
+    ]
+  }
+}

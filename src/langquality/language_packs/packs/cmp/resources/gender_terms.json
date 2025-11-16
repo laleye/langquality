@@ -1,0 +1,5 @@
+{
+  "masculine": ["he", "him", "his", "man", "boy"],
+  "feminine": ["she", "her", "hers", "woman", "girl"],
+  "neutral": ["they", "them", "their", "person", "child"]
+}

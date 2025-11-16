@@ -1,0 +1,41 @@
+{
+  "_comment": "Example Professions File - Remove this comment and rename to professions.json when ready",
+  "_instructions": "Include 20-50 common professions with their gendered forms (if applicable in your language)",
+  
+  "professions": [
+    {
+      "neutral": "teacher",
+      "masculine": "male teacher",
+      "feminine": "female teacher",
+      "_note": "Use neutral form as base when possible"
+    },
+    {
+      "neutral": "doctor",
+      "masculine": "doctor",
+      "feminine": "doctor",
+      "_note": "Some professions may not have gendered forms"
+    },
+    {
+      "neutral": "nurse",
+      "masculine": "male nurse",
+      "feminine": "nurse",
+      "_note": "Note default gender assumptions (nurse = female is a stereotype)"
+    },
+    {
+      "neutral": "engineer",
+      "masculine": "engineer",
+      "feminine": "engineer"
+    },
+    {
+      "neutral": "manager",
+      "masculine": "manager",
+      "feminine": "manager"
+    },
+    {
+      "neutral": "server",
+      "masculine": "waiter",
+      "feminine": "waitress",
+      "_note": "Include both neutral and gendered forms when both exist"
+    }
+  ]
+}

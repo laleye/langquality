@@ -1,0 +1,93 @@
+# French Language Pack Configuration
+# Language: French (Français)
+# ISO 639-3: fra
+
+language:
+  code: "fra"
+  name: "French"
+  native_name: "Français"
+  family: "Indo-European"
+  subfamily: "Romance"
+  script: "Latin"
+  direction: "ltr"
+  region: "France, Belgium, Switzerland, Canada, Africa"
+
+# Tokenization settings
+tokenization:
+  method: "spacy"
+  model: "fr_core_news_md"
+  custom_rules: []
+  fallback: "whitespace"
+
+# Analysis thresholds
+thresholds:
+  structural:
+    min_words: 3
+    max_words: 25
+    min_chars: 10
+    max_chars: 250
+    check_punctuation: true
+    check_capitalization: true
+  
+  linguistic:
+    min_readability_score: 0.0
+    max_readability_score: 70.0
+    enable_pos_tagging: true
+    enable_dependency_parsing: true
+    check_jargon: true
+  
+  diversity:
+    target_ttr: 0.65
+    min_unique_words: 150
+    check_duplicates: true
+    duplicate_threshold: 0.95
+  
+  domain:
+    min_representation: 0.08
+    max_representation: 0.35
+    balance_threshold: 0.15
+    require_domain_labels: false
+  
+  gender:
+    target_ratio: [0.4, 0.6]
+    check_stereotypes: true
+    check_profession_bias: true
+
+# Resource files (all optional)
+resources:
+  lexicon: "lexicon.txt"
+  stopwords: "stopwords.txt"
+  gender_terms: "gender_terms.json"
+  professions: "professions.json"
+  stereotypes: "gender_stereotypes.json"
+
+# Enabled analyzers
+analyzers:
+  enabled:
+    - structural
+    - linguistic
+    - diversity
+    - domain
+    - gender_bias
+  disabled: []
+
+# Custom analyzer plugins
+plugins: []
+
+# Domain-specific settings
+domains:
+  expected:
+    - health
+    - education
+    - technology
+    - business
+    - culture
+    - science
+    - politics
+    - sports
+  
+# Output preferences
+output:
+  language: "fr"
+  date_format: "%d/%m/%Y"
+  number_format: "fr_FR"

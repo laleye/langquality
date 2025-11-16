@@ -1,0 +1,137 @@
+{
+  "masculine": {
+    "pronouns": [
+      "he",
+      "him",
+      "his",
+      "himself"
+    ],
+    "titles": [
+      "mr",
+      "mister",
+      "sir",
+      "lord",
+      "gentleman",
+      "gentlemen"
+    ],
+    "terms": [
+      "man",
+      "men",
+      "boy",
+      "boys",
+      "male",
+      "father",
+      "dad",
+      "daddy",
+      "son",
+      "brother",
+      "uncle",
+      "nephew",
+      "grandfather",
+      "grandpa",
+      "husband",
+      "boyfriend",
+      "fiance",
+      "groom",
+      "king",
+      "prince",
+      "duke",
+      "baron",
+      "earl",
+      "guy",
+      "dude",
+      "fellow",
+      "lad",
+      "gentleman"
+    ]
+  },
+  "feminine": {
+    "pronouns": [
+      "she",
+      "her",
+      "hers",
+      "herself"
+    ],
+    "titles": [
+      "mrs",
+      "ms",
+      "miss",
+      "madam",
+      "ma'am",
+      "lady",
+      "ladies"
+    ],
+    "terms": [
+      "woman",
+      "women",
+      "girl",
+      "girls",
+      "female",
+      "mother",
+      "mom",
+      "mommy",
+      "mum",
+      "daughter",
+      "sister",
+      "aunt",
+      "niece",
+      "grandmother",
+      "grandma",
+      "wife",
+      "girlfriend",
+      "fiancee",
+      "bride",
+      "queen",
+      "princess",
+      "duchess",
+      "baroness",
+      "countess",
+      "gal",
+      "lady"
+    ]
+  },
+  "neutral": {
+    "pronouns": [
+      "they",
+      "them",
+      "their",
+      "theirs",
+      "themselves",
+      "ze",
+      "hir",
+      "xe",
+      "xem"
+    ],
+    "titles": [
+      "mx",
+      "dr",
+      "doctor",
+      "professor",
+      "prof"
+    ],
+    "terms": [
+      "person",
+      "people",
+      "individual",
+      "child",
+      "children",
+      "adult",
+      "parent",
+      "sibling",
+      "spouse",
+      "partner",
+      "friend",
+      "colleague",
+      "neighbor",
+      "citizen",
+      "member",
+      "participant",
+      "student",
+      "pupil",
+      "worker",
+      "employee",
+      "human",
+      "humanity"
+    ]
+  }
+}
