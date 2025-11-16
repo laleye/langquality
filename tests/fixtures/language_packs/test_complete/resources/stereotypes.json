@@ -1,0 +1,14 @@
+{
+  "stereotypes": [
+    {
+      "pattern": "he is an engineer",
+      "type": "profession_gender",
+      "severity": "medium"
+    },
+    {
+      "pattern": "she is a nurse",
+      "type": "profession_gender",
+      "severity": "medium"
+    }
+  ]
+}

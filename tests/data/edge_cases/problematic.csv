@@ -1,0 +1,16 @@
+fongbe,french
+,
+Test,Phrase très courte
+Test long,Cette phrase est extrêmement longue et contient beaucoup trop de mots pour être considérée comme appropriée pour un enregistrement audio de qualité car elle dépasse largement les vingt mots recommandés
+Test répétition,Je vais au marché je vais au marché je vais au marché
+Test caractères,Phrase avec des caractères spéciaux @#$%^&*()
+Test jargon,L'algorithme d'apprentissage automatique utilise des réseaux de neurones convolutifs pour la classification
+Test complexe,Bien que la situation soit complexe et que les circonstances soient difficiles à comprendre étant donné que plusieurs facteurs entrent en jeu simultanément
+Test vide,   
+Test unicode,Phrase avec émojis 😀 🎉 ✨
+Test ponctuation,!!!???...---
+Test mixte,Phrase normale suivie de !!!! beaucoup !!!! de !!!! ponctuation !!!!
+Test nombre,123456789 0987654321
+Test majuscules,PHRASE ENTIÈREMENT EN MAJUSCULES
+Test minuscules,phrase entièrement en minuscules sans ponctuation
+Test accent,Phrase avec des accents très compliqués à gérer éventuellement

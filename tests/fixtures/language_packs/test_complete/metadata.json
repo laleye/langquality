@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "author": "Test Author",
+  "email": "test@example.com",
+  "license": "MIT",
+  "description": "Complete test language pack for testing purposes",
+  "created": "2024-01-01",
+  "updated": "2024-01-01",
+  "contributors": ["Test Contributor"],
+  "status": "stable",
+  "coverage": {
+    "lexicon_size": 100,
+    "domains_covered": ["test", "sample"],
+    "has_gender_resources": true
+  },
+  "dependencies": {
+    "min_langquality_version": "1.0.0"
+  },
+  "references": []
+}

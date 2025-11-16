@@ -1,0 +1,12 @@
+# Invalid test language pack - missing required fields
+language:
+  name: "Invalid Test Language"
+  # Missing 'code' field
+
+tokenization:
+  method: "invalid_method"
+
+resources: {}
+
+analyzers:
+  enabled: []

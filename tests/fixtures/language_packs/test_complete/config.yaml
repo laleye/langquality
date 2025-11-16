@@ -1,0 +1,57 @@
+# Complete test language pack configuration
+language:
+  code: "tst"
+  name: "Test Language"
+  family: "Test Family"
+  script: "Latin"
+  direction: "ltr"
+
+tokenization:
+  method: "whitespace"
+  model: null
+  custom_rules: []
+
+thresholds:
+  structural:
+    min_words: 3
+    max_words: 20
+    min_chars: 10
+    max_chars: 200
+  
+  linguistic:
+    max_readability_score: 60.0
+    enable_pos_tagging: true
+    enable_dependency_parsing: false
+  
+  diversity:
+    target_ttr: 0.6
+    min_unique_words: 100
+    check_duplicates: true
+  
+  domain:
+    min_representation: 0.10
+    max_representation: 0.30
+    balance_threshold: 0.15
+  
+  gender:
+    target_ratio: [0.4, 0.6]
+    check_stereotypes: true
+
+resources:
+  lexicon: "lexicon.txt"
+  stopwords: "stopwords.txt"
+  gender_terms: "gender_terms.json"
+  professions: "professions.json"
+  stereotypes: "stereotypes.json"
+  custom: []
+
+analyzers:
+  enabled:
+    - structural
+    - linguistic
+    - diversity
+    - domain
+    - gender_bias
+  disabled: []
+
+plugins: []

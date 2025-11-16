@@ -1,0 +1,8 @@
+text,domain
+Bonjour le monde ceci est un test,salutation
+Le chat dort sur le canapé,animaux
+Elle est ingénieure informatique,profession
+Il est infirmier,profession
+Cette phrase a une bonne longueur et structure,qualité
+Court,qualité
+Ceci est une phrase extrêmement longue qui continue encore et encore avec beaucoup de mots pour tester la détection du seuil de longueur maximale,qualité

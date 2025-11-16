@@ -1,0 +1,5 @@
+{
+  "masculine": ["engineer", "doctor", "pilot"],
+  "feminine": ["nurse", "teacher", "secretary"],
+  "neutral": ["developer", "manager", "analyst"]
+}

@@ -1,0 +1,8 @@
+text,domain
+Hello world this is a test,greeting
+The quick brown fox jumps over the lazy dog,animals
+She is a software engineer,profession
+He is a nurse,profession
+This sentence has good length and structure,quality
+Short,quality
+This is an extremely long sentence that goes on and on with many words to test the maximum length threshold detection,quality

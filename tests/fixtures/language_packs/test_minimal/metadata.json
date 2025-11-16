@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "author": "Test Author",
+  "email": "test@example.com",
+  "license": "MIT",
+  "description": "Minimal test language pack with no resources",
+  "status": "experimental"
+}

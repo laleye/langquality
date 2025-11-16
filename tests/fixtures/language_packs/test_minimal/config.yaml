@@ -1,0 +1,21 @@
+# Minimal test language pack configuration
+language:
+  code: "min"
+  name: "Minimal Test Language"
+
+tokenization:
+  method: "whitespace"
+
+thresholds:
+  structural:
+    min_words: 3
+    max_words: 20
+
+resources: {}
+
+analyzers:
+  enabled:
+    - structural
+  disabled: []
+
+plugins: []

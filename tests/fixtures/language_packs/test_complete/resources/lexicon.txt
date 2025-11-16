@@ -1,0 +1,10 @@
+hello
+world
+test
+sample
+data
+quality
+language
+analysis
+sentence
+word
