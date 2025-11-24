@@ -355,6 +355,9 @@ class RecommendationEngine:
             num_repetitive = len(diversity.repetitive_ngrams)
             top_repetitive = diversity.repetitive_ngrams[:5]
             
+            # Format top repetitive n-grams for display
+            top_rep_formatted = ', '.join([f'"{ng[0]}" ({ng[1]}x)' for ng in top_repetitive[:3]])
+            
             recommendations.append(Recommendation(
                 category="diversity",
                 severity=bp.SEVERITY_WARNING,
@@ -363,7 +366,7 @@ class RecommendationEngine:
                     f"Found {num_repetitive} n-grams (word sequences) that appear more than "
                     f"{bp.MAX_NGRAM_REPETITION_COUNT} times. "
                     f"Excessive repetition reduces structural diversity. "
-                    f"Most repetitive: {', '.join([f'\"{ng[0]}\" ({ng[1]}x)' for ng in top_repetitive[:3]])}"
+                    f"Most repetitive: {top_rep_formatted}"
                 ),
                 affected_items=[f"{ngram}: {count} occurrences" for ngram, count in top_repetitive],
                 suggested_actions=[
