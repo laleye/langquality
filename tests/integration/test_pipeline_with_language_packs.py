@@ -149,7 +149,7 @@ class TestMultiLanguagePipeline:
         
         # Test with minimal pack
         pack2 = pack_manager.load_language_pack("test_minimal")
-        controller2 = PipelineController(pack2, registry)
+        controller2 = PipelineController(config, pack2, registry)
         
         dataset2 = get_test_dataset_path("test_french.csv")
         loader2 = GenericDataLoader(pack2)

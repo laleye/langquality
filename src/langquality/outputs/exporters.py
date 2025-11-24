@@ -91,14 +91,20 @@ class ExportManager:
     
     def _serialize_diversity(self, metrics) -> Dict[str, Any]:
         """Serialize diversity metrics."""
+        # Convert tuple keys to strings for JSON serialization
+        bigram_dict = {" ".join(k) if isinstance(k, tuple) else str(k): v 
+                       for k, v in metrics.bigram_distribution.most_common(50)}
+        trigram_dict = {" ".join(k) if isinstance(k, tuple) else str(k): v 
+                        for k, v in metrics.trigram_distribution.most_common(50)}
+        
         return {
             "ttr": metrics.ttr,
             "unique_words": metrics.unique_words,
             "total_words": metrics.total_words,
             "vocabulary_coverage": metrics.vocabulary_coverage,
-            "bigram_distribution": dict(metrics.bigram_distribution.most_common(50)),
-            "trigram_distribution": dict(metrics.trigram_distribution.most_common(50)),
-            "repetitive_ngrams": metrics.repetitive_ngrams,
+            "bigram_distribution": bigram_dict,
+            "trigram_distribution": trigram_dict,
+            "repetitive_ngrams": [(ng, count) for ng, count in metrics.repetitive_ngrams],
             "near_duplicates": [
                 {
                     "sentence1": self._serialize_sentence(s1),

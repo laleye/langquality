@@ -3,9 +3,9 @@
 import pytest
 from pathlib import Path
 
-from src.langquality.language_packs.manager import LanguagePackManager
-from src.langquality.language_packs.models import LanguagePack
-from src.langquality.language_packs.validation import ValidationError
+from langquality.language_packs.manager import LanguagePackManager
+from langquality.language_packs.models import LanguagePack
+from langquality.language_packs.validation import ValidationError
 from tests.fixtures import get_language_packs_dir, get_test_pack_path
 
 

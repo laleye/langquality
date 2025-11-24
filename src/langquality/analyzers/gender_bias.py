@@ -61,9 +61,13 @@ class GenderBiasAnalyzer(Analyzer):
             if isinstance(gender_terms, dict) and 'masculine' in gender_terms:
                 masc_data = gender_terms['masculine']
                 terms = []
-                terms.extend(masc_data.get('pronouns', []))
-                terms.extend(masc_data.get('articles', []))
-                terms.extend(masc_data.get('titles', []))
+                # Handle both dict and list formats
+                if isinstance(masc_data, dict):
+                    terms.extend(masc_data.get('pronouns', []))
+                    terms.extend(masc_data.get('articles', []))
+                    terms.extend(masc_data.get('titles', []))
+                elif isinstance(masc_data, list):
+                    terms.extend(masc_data)
                 return terms
         
         # Fallback to default resources
@@ -89,9 +93,13 @@ class GenderBiasAnalyzer(Analyzer):
             if isinstance(gender_terms, dict) and 'feminine' in gender_terms:
                 fem_data = gender_terms['feminine']
                 terms = []
-                terms.extend(fem_data.get('pronouns', []))
-                terms.extend(fem_data.get('articles', []))
-                terms.extend(fem_data.get('titles', []))
+                # Handle both dict and list formats
+                if isinstance(fem_data, dict):
+                    terms.extend(fem_data.get('pronouns', []))
+                    terms.extend(fem_data.get('articles', []))
+                    terms.extend(fem_data.get('titles', []))
+                elif isinstance(fem_data, list):
+                    terms.extend(fem_data)
                 return terms
         
         # Fallback to default resources
