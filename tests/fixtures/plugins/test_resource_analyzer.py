@@ -3,9 +3,9 @@
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple
 
-from src.langquality.analyzers.base import Analyzer
-from src.langquality.data.models import Sentence
-from src.langquality.language_packs.models import LanguagePack
+from langquality.analyzers.base import Analyzer
+from langquality.data.models import Sentence
+from langquality.language_packs.models import LanguagePack
 
 
 @dataclass

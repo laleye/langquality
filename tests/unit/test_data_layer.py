@@ -4,10 +4,10 @@ import tempfile
 import csv
 from pathlib import Path
 
-from src.langquality.data.loader import DataLoader
-from src.langquality.data.validator import DataValidator
-from src.langquality.data.models import Sentence, ValidationResult
-from src.langquality.utils.exceptions import DataLoadError
+from langquality.data.loader import DataLoader
+from langquality.data.validator import DataValidator
+from langquality.data.models import Sentence, ValidationResult
+from langquality.utils.exceptions import DataLoadError
 import pytest
 
 

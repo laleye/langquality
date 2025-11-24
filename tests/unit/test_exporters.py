@@ -6,12 +6,12 @@ import tempfile
 from pathlib import Path
 from datetime import datetime
 
-from src.langquality.outputs.exporters import ExportManager
-from src.langquality.pipeline.results import AnalysisResults
-from src.langquality.data.models import Sentence
-from src.langquality.config.models import AnalysisConfig, PipelineConfig
-from src.langquality.analyzers.structural import StructuralMetrics
-from src.langquality.recommendations.models import Recommendation
+from langquality.outputs.exporters import ExportManager
+from langquality.pipeline.results import AnalysisResults
+from langquality.data.models import Sentence
+from langquality.config.models import AnalysisConfig, PipelineConfig
+from langquality.analyzers.structural import StructuralMetrics
+from langquality.recommendations.models import Recommendation
 
 
 def test_export_json():

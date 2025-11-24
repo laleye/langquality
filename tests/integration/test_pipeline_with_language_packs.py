@@ -5,10 +5,10 @@ import tempfile
 import shutil
 from pathlib import Path
 
-from src.langquality.language_packs.manager import LanguagePackManager
-from src.langquality.analyzers.registry import AnalyzerRegistry
-from src.langquality.data.generic_loader import GenericDataLoader
-from src.langquality.pipeline.controller import PipelineController
+from langquality.language_packs.manager import LanguagePackManager
+from langquality.analyzers.registry import AnalyzerRegistry
+from langquality.data.generic_loader import GenericDataLoader
+from langquality.pipeline.controller import PipelineController
 from tests.fixtures import (
     get_language_packs_dir,
     get_test_dataset_path,
@@ -45,7 +45,7 @@ class TestPipelineWithLanguagePacks:
         
         # Create registry and controller
         registry = AnalyzerRegistry()
-        from src.langquality.config.models import PipelineConfig, AnalysisConfig
+        from langquality.config.models import PipelineConfig, AnalysisConfig
         config = PipelineConfig(
             analysis=AnalysisConfig(),
             input_directory="test",
@@ -74,7 +74,7 @@ class TestPipelineWithLanguagePacks:
         
         # Create registry and controller
         registry = AnalyzerRegistry()
-        from src.langquality.config.models import PipelineConfig, AnalysisConfig
+        from langquality.config.models import PipelineConfig, AnalysisConfig
         config = PipelineConfig(
             analysis=AnalysisConfig(),
             input_directory="test",
@@ -94,7 +94,7 @@ class TestPipelineWithLanguagePacks:
         """Test pipeline with different language datasets."""
         pack = pack_manager.load_language_pack("test_complete")
         registry = AnalyzerRegistry()
-        from src.langquality.config.models import PipelineConfig, AnalysisConfig
+        from langquality.config.models import PipelineConfig, AnalysisConfig
         config = PipelineConfig(
             analysis=AnalysisConfig(),
             input_directory="test",
@@ -131,7 +131,7 @@ class TestMultiLanguagePipeline:
         
         # Test with complete pack
         pack1 = pack_manager.load_language_pack("test_complete")
-        from src.langquality.config.models import PipelineConfig, AnalysisConfig
+        from langquality.config.models import PipelineConfig, AnalysisConfig
         config = PipelineConfig(
             analysis=AnalysisConfig(),
             input_directory="test",
@@ -174,7 +174,7 @@ class TestMultiLanguagePipeline:
         
         for pack_name, dataset_name in packs.items():
             pack = pack_manager.load_language_pack(pack_name)
-            from src.langquality.config.models import PipelineConfig, AnalysisConfig
+            from langquality.config.models import PipelineConfig, AnalysisConfig
             config = PipelineConfig(
                 analysis=AnalysisConfig(),
                 input_directory="test",
@@ -288,7 +288,7 @@ class TestGracefulDegradation:
         """Test that pipeline disables analyzers without required resources."""
         pack = pack_manager.load_language_pack("test_minimal")
         registry = AnalyzerRegistry()
-        from src.langquality.config.models import PipelineConfig, AnalysisConfig
+        from langquality.config.models import PipelineConfig, AnalysisConfig
         config = PipelineConfig(
             analysis=AnalysisConfig(),
             input_directory="test",
@@ -320,8 +320,8 @@ class TestGracefulDegradation:
         registry = AnalyzerRegistry()
         
         # Create a failing analyzer
-        from src.langquality.analyzers.base import Analyzer
-        from src.langquality.data.models import Sentence
+        from langquality.analyzers.base import Analyzer
+        from langquality.data.models import Sentence
         from typing import List
         
         class FailingAnalyzer(Analyzer):
@@ -351,7 +351,7 @@ class TestGracefulDegradation:
         sentences = loader.load_from_csv(str(dataset_path))
         
         # Pipeline should handle the failure gracefully
-        from src.langquality.config.models import PipelineConfig, AnalysisConfig
+        from langquality.config.models import PipelineConfig, AnalysisConfig
         config = PipelineConfig(
             analysis=AnalysisConfig(),
             input_directory="test",
@@ -451,7 +451,7 @@ class TestEndToEndWorkflow:
         assert len(sentences) > 0
         
         # Step 5: Create pipeline controller
-        from src.langquality.config.models import PipelineConfig, AnalysisConfig
+        from langquality.config.models import PipelineConfig, AnalysisConfig
         config = PipelineConfig(
             analysis=AnalysisConfig(),
             input_directory="test",
@@ -489,7 +489,7 @@ class TestEndToEndWorkflow:
             sentences = loader.load_from_csv(str(dataset_path))
             
             # Analyze
-            from src.langquality.config.models import PipelineConfig, AnalysisConfig
+            from langquality.config.models import PipelineConfig, AnalysisConfig
             config = PipelineConfig(
                 analysis=AnalysisConfig(),
                 input_directory="test",

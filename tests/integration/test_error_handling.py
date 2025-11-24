@@ -6,10 +6,10 @@ import shutil
 from pathlib import Path
 import csv
 
-from src.langquality.config.models import AnalysisConfig, PipelineConfig
-from src.langquality.data.loader import DataLoader
-from src.langquality.pipeline.controller import PipelineController
-from src.langquality.utils.exceptions import (
+from langquality.config.models import AnalysisConfig, PipelineConfig
+from langquality.data.loader import DataLoader
+from langquality.pipeline.controller import PipelineController
+from langquality.utils.exceptions import (
     DataLoadError,
     ValidationError,
     AnalysisError,
@@ -153,7 +153,7 @@ class TestErrorHandling:
         all_sentences = [s for sentences in sentences_by_domain.values() for s in sentences]
         
         # Mock one analyzer to fail
-        from src.langquality.analyzers import structural
+        from langquality.analyzers import structural
         original_analyze = structural.StructuralAnalyzer.analyze
         
         def failing_analyze(self, sentences):
@@ -190,7 +190,7 @@ class TestErrorHandling:
         all_sentences = [s for sentences in sentences_by_domain.values() for s in sentences]
         
         # Mock all analyzers to fail
-        from src.langquality.analyzers import structural, domain
+        from langquality.analyzers import structural, domain
         
         def failing_analyze(self, sentences):
             raise Exception("Simulated failure")
@@ -321,7 +321,7 @@ class TestErrorHandling:
     
     def test_missing_configuration_file(self):
         """Test configuration loader with missing file."""
-        from src.langquality.config.loader import load_config
+        from langquality.config.loader import load_config
         
         # Should raise ConfigurationError for nonexistent file
         with pytest.raises(ConfigurationError):

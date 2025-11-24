@@ -1,12 +1,12 @@
 """Unit tests for analyzers."""
 
-from src.langquality.analyzers.structural import StructuralAnalyzer, StructuralMetrics
-from src.langquality.analyzers.domain import DomainAnalyzer, DomainMetrics
-from src.langquality.analyzers.diversity import DiversityAnalyzer, DiversityMetrics
-from src.langquality.analyzers.linguistic import LinguisticAnalyzer, LinguisticMetrics
-from src.langquality.analyzers.gender_bias import GenderBiasAnalyzer, GenderBiasMetrics
-from src.langquality.data.models import Sentence
-from src.langquality.config.models import AnalysisConfig
+from langquality.analyzers.structural import StructuralAnalyzer, StructuralMetrics
+from langquality.analyzers.domain import DomainAnalyzer, DomainMetrics
+from langquality.analyzers.diversity import DiversityAnalyzer, DiversityMetrics
+from langquality.analyzers.linguistic import LinguisticAnalyzer, LinguisticMetrics
+from langquality.analyzers.gender_bias import GenderBiasAnalyzer, GenderBiasMetrics
+from langquality.data.models import Sentence
+from langquality.config.models import AnalysisConfig
 
 
 class TestStructuralAnalyzer:

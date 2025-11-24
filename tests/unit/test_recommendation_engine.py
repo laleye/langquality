@@ -2,17 +2,17 @@
 
 from datetime import datetime
 
-from src.langquality.recommendations.engine import RecommendationEngine
-from src.langquality.recommendations.best_practices import BestPractices
-from src.langquality.recommendations.models import Recommendation
-from src.langquality.pipeline.results import AnalysisResults
-from src.langquality.analyzers.structural import StructuralMetrics
-from src.langquality.analyzers.linguistic import LinguisticMetrics
-from src.langquality.analyzers.diversity import DiversityMetrics
-from src.langquality.analyzers.domain import DomainMetrics
-from src.langquality.analyzers.gender_bias import GenderBiasMetrics
-from src.langquality.data.models import Sentence
-from src.langquality.config.models import AnalysisConfig, PipelineConfig
+from langquality.recommendations.engine import RecommendationEngine
+from langquality.recommendations.best_practices import BestPractices
+from langquality.recommendations.models import Recommendation
+from langquality.pipeline.results import AnalysisResults
+from langquality.analyzers.structural import StructuralMetrics
+from langquality.analyzers.linguistic import LinguisticMetrics
+from langquality.analyzers.diversity import DiversityMetrics
+from langquality.analyzers.domain import DomainMetrics
+from langquality.analyzers.gender_bias import GenderBiasMetrics
+from langquality.data.models import Sentence
+from langquality.config.models import AnalysisConfig, PipelineConfig
 
 
 class TestRecommendationEngine:

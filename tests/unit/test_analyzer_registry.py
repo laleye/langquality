@@ -3,13 +3,13 @@
 import pytest
 from pathlib import Path
 
-from src.langquality.analyzers.registry import AnalyzerRegistry
-from src.langquality.analyzers.base import Analyzer
-from src.langquality.analyzers.structural import StructuralAnalyzer
-from src.langquality.analyzers.linguistic import LinguisticAnalyzer
-from src.langquality.analyzers.diversity import DiversityAnalyzer
-from src.langquality.analyzers.domain import DomainAnalyzer
-from src.langquality.analyzers.gender_bias import GenderBiasAnalyzer
+from langquality.analyzers.registry import AnalyzerRegistry
+from langquality.analyzers.base import Analyzer
+from langquality.analyzers.structural import StructuralAnalyzer
+from langquality.analyzers.linguistic import LinguisticAnalyzer
+from langquality.analyzers.diversity import DiversityAnalyzer
+from langquality.analyzers.domain import DomainAnalyzer
+from langquality.analyzers.gender_bias import GenderBiasAnalyzer
 from tests.fixtures import get_test_plugin_dir
 
 
@@ -307,7 +307,7 @@ class TestPluginIntegration:
     
     def test_plugin_can_analyze(self):
         """Test that loaded plugin can perform analysis."""
-        from src.langquality.data.models import Sentence
+        from langquality.data.models import Sentence
         
         registry = AnalyzerRegistry()
         plugin_dir = get_test_plugin_dir()
@@ -339,7 +339,7 @@ class TestPluginIntegration:
     
     def test_resource_plugin_can_run_check(self):
         """Test resource plugin can_run check."""
-        from src.langquality.language_packs.models import (
+        from langquality.language_packs.models import (
             LanguagePack, LanguageConfig, PackMetadata
         )
         

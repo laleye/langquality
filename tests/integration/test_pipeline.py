@@ -6,13 +6,13 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 
-from src.langquality.config.models import AnalysisConfig, PipelineConfig
-from src.langquality.data.loader import DataLoader
-from src.langquality.pipeline.controller import PipelineController
-from src.langquality.recommendations.engine import RecommendationEngine
-from src.langquality.recommendations.best_practices import BestPractices
-from src.langquality.outputs.exporters import ExportManager
-from src.langquality.outputs.dashboard import DashboardGenerator
+from langquality.config.models import AnalysisConfig, PipelineConfig
+from langquality.data.loader import DataLoader
+from langquality.pipeline.controller import PipelineController
+from langquality.recommendations.engine import RecommendationEngine
+from langquality.recommendations.best_practices import BestPractices
+from langquality.outputs.exporters import ExportManager
+from langquality.outputs.dashboard import DashboardGenerator
 
 
 class TestEndToEndPipeline:

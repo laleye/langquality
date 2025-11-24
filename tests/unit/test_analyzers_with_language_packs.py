@@ -2,14 +2,14 @@
 
 import pytest
 
-from src.langquality.analyzers.structural import StructuralAnalyzer
-from src.langquality.analyzers.linguistic import LinguisticAnalyzer
-from src.langquality.analyzers.diversity import DiversityAnalyzer
-from src.langquality.analyzers.domain import DomainAnalyzer
-from src.langquality.analyzers.gender_bias import GenderBiasAnalyzer
-from src.langquality.data.models import Sentence
-from src.langquality.language_packs.manager import LanguagePackManager
-from src.langquality.language_packs.models import (
+from langquality.analyzers.structural import StructuralAnalyzer
+from langquality.analyzers.linguistic import LinguisticAnalyzer
+from langquality.analyzers.diversity import DiversityAnalyzer
+from langquality.analyzers.domain import DomainAnalyzer
+from langquality.analyzers.gender_bias import GenderBiasAnalyzer
+from langquality.data.models import Sentence
+from langquality.language_packs.manager import LanguagePackManager
+from langquality.language_packs.models import (
     LanguagePack, LanguageConfig, PackMetadata, ThresholdConfig,
     StructuralThresholds, LinguisticThresholds, DiversityThresholds,
     DomainThresholds, GenderThresholds
@@ -54,7 +54,7 @@ class TestAnalyzersWithLanguagePack:
     
     def test_structural_analyzer_without_pack(self, sample_sentences):
         """Test StructuralAnalyzer without language pack."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzer = StructuralAnalyzer(config)
         
@@ -127,7 +127,7 @@ class TestAnalyzerResourceRequirements:
     
     def test_structural_analyzer_requirements(self):
         """Test StructuralAnalyzer resource requirements."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzer = StructuralAnalyzer(config)
         requirements = analyzer.get_requirements()
@@ -138,7 +138,7 @@ class TestAnalyzerResourceRequirements:
     
     def test_linguistic_analyzer_requirements(self):
         """Test LinguisticAnalyzer resource requirements."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzer = LinguisticAnalyzer(config)
         requirements = analyzer.get_requirements()
@@ -148,7 +148,7 @@ class TestAnalyzerResourceRequirements:
     
     def test_diversity_analyzer_requirements(self):
         """Test DiversityAnalyzer resource requirements."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzer = DiversityAnalyzer(config)
         requirements = analyzer.get_requirements()
@@ -158,7 +158,7 @@ class TestAnalyzerResourceRequirements:
     
     def test_gender_bias_analyzer_requirements(self):
         """Test GenderBiasAnalyzer resource requirements."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzer = GenderBiasAnalyzer(config)
         requirements = analyzer.get_requirements()
@@ -198,7 +198,7 @@ class TestAnalyzerResourceRequirements:
     
     def test_analyzer_can_run_without_pack(self):
         """Test analyzer can_run without language pack."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzers = [
             StructuralAnalyzer(config),
@@ -344,7 +344,7 @@ class TestAnalyzerProperties:
     
     def test_analyzer_name_property(self):
         """Test that analyzers have name property."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzers = [
             StructuralAnalyzer(config),
@@ -361,7 +361,7 @@ class TestAnalyzerProperties:
     
     def test_analyzer_version_property(self):
         """Test that analyzers have version property."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzers = [
             StructuralAnalyzer(config),
@@ -378,7 +378,7 @@ class TestAnalyzerProperties:
     
     def test_analyzer_implements_required_methods(self):
         """Test that analyzers implement required methods."""
-        from src.langquality.language_packs.models import ThresholdConfig
+        from langquality.language_packs.models import ThresholdConfig
         config = ThresholdConfig()
         analyzers = [
             StructuralAnalyzer(config),
