@@ -147,18 +147,40 @@ class GenderBiasAnalyzer(Analyzer):
         if self.language_pack and self.language_pack.has_resource('stereotypes'):
             stereotypes = self.language_pack.get_resource('stereotypes')
             if isinstance(stereotypes, dict) and 'stereotypes' in stereotypes:
-                return stereotypes['stereotypes']
+                patterns = stereotypes['stereotypes']
             elif isinstance(stereotypes, list):
-                return stereotypes
+                patterns = stereotypes
+            else:
+                self.logger.warning(f"Unexpected stereotype format from language pack: {type(stereotypes)}")
+                patterns = []
+            
+            # Validate the loaded patterns
+            if patterns:
+                validated_patterns = []
+                for pattern in patterns:
+                    if isinstance(pattern, dict) and 'patterns' in pattern:
+                        validated_patterns.append(pattern)
+                    else:
+                        self.logger.warning(f"Skipping invalid stereotype pattern: {pattern}")
+                return validated_patterns
         
         # Fallback to default resources
         try:
             resources_path = Path(__file__).parent.parent / "resources" / "gender_stereotypes.json"
             with open(resources_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-            return data['stereotypes']
-        except (FileNotFoundError, KeyError):
-            self.logger.warning("Gender stereotypes not found, stereotype detection will be disabled")
+            patterns = data.get('stereotypes', [])
+            
+            # Validate the loaded patterns
+            validated_patterns = []
+            for pattern in patterns:
+                if isinstance(pattern, dict) and 'patterns' in pattern:
+                    validated_patterns.append(pattern)
+                else:
+                    self.logger.warning(f"Skipping invalid stereotype pattern: {pattern}")
+            return validated_patterns
+        except (FileNotFoundError, KeyError) as e:
+            self.logger.warning(f"Gender stereotypes not found: {e}, stereotype detection will be disabled")
             return []
     
     def analyze(self, sentences) -> GenderBiasMetrics:
@@ -270,14 +292,28 @@ class GenderBiasAnalyzer(Analyzer):
             text_lower = sentence.text.lower()
             
             for stereotype in self.stereotype_patterns:
-                for pattern in stereotype['patterns']:
+                # Validate stereotype structure
+                if not isinstance(stereotype, dict):
+                    self.logger.warning(f"Invalid stereotype format: expected dict, got {type(stereotype)}")
+                    continue
+                
+                if 'patterns' not in stereotype:
+                    self.logger.warning(f"Stereotype missing 'patterns' key: {stereotype}")
+                    continue
+                
+                patterns = stereotype['patterns']
+                if not isinstance(patterns, list):
+                    self.logger.warning(f"Stereotype 'patterns' should be a list, got {type(patterns)}")
+                    continue
+                
+                for pattern in patterns:
                     if re.search(pattern, text_lower):
                         detected_stereotypes.append({
                             'sentence': sentence.text,
                             'line_number': sentence.line_number,
                             'source_file': sentence.source_file,
-                            'stereotype_type': stereotype['type'],
-                            'description': stereotype['description'],
+                            'stereotype_type': stereotype.get('type', 'unknown'),
+                            'description': stereotype.get('description', 'No description'),
                             'matched_pattern': pattern
                         })
                         break  # Only report once per sentence per stereotype type
